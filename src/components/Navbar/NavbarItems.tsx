@@ -1,4 +1,4 @@
-const NavbarItem = () => {
+const NavbarItems = () => {
   return (
     <nav role="navigation" className="c-navigation__menu">
       <button
@@ -37,4 +37,4 @@ const NavbarItem = () => {
   );
 };
 
-export { NavbarItem };
+export { NavbarItems };
