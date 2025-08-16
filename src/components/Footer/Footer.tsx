@@ -1,3 +1,5 @@
+import { LinkItem } from "../LinkItem/LinkItem";
+
 const Footer = () => {
   return (
     <footer className="c-footer stack">
@@ -14,24 +16,16 @@ const Footer = () => {
         </div>
         <ul className="c-list" id="menuList" aria-labelledby="menuButton">
           <li className="c-list__item">
-            <a href="../index.html" className="link link--decorated body">
-              Início
-            </a>
+            <LinkItem route="/">Início</LinkItem>
           </li>
           <li className="c-list__item">
-            <a href="#" className="link link--decorated body">
-              FAQ
-            </a>
+            <LinkItem route="/faq">FAQ</LinkItem>
           </li>
           <li className="c-list__item">
-            <a href="./integrantes.html" className="link link--decorated body">
-              Integrantes
-            </a>
+            <LinkItem route="/integrantes">Integrantes</LinkItem>
           </li>
           <li className="c-list__item">
-            <a href="./contato.html" className="link link--decorated body">
-              Contato
-            </a>
+            <LinkItem route="/contato">Contato</LinkItem>
           </li>
         </ul>
         <ul
