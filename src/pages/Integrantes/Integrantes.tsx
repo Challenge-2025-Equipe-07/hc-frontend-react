@@ -1,10 +1,10 @@
+import { Heading } from "../../components/Heading/Heading";
+
 const Integrantes = () => {
   return (
     <section className="layout">
       <div className="l-member row">
-        <header className="page-header">
-          <h2 className="heading">Integrantes</h2>
-        </header>
+        <Heading title="Integrantes" />
         <article className="c-member-card">
           <img
             src="../assets/images/compressed_CamiloMicheletto.png"
