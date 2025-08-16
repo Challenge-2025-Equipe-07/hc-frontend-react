@@ -1,69 +1,39 @@
-# React + TypeScript + Vite
+# AJUDA HC
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Objetivo do projeto
+A proposta desenvolvida se divide em dois módulos que se complementam:
+- Um assistente virtual (chatbot) baseado no IBM Watson Assistant, com fluxos guiados, uso de linguagem simples e possibilidade de interação por texto ou voz. O chatbot reconhece padrões de erro comuns e responde de forma acolhedora.
+- Uma FAQ interativa em formato de stories — vídeos curtos, narrados, com botões de navegação acessíveis, alto contraste e compatibilidade com leitores de tela. Inspirada em redes sociais, essa abordagem facilita a compreensão mesmo de usuários com pouca experiência digital.
+O foco da solução está na empatia e na acessibilidade. O objetivo é eliminar frustrações e promover uma jornada digital positiva para o paciente.
 
-Currently, two official plugins are available:
+## Estrutura de Pastas e Arquivos
+    ├── ./LICENSE
+    ├── ./assets
+    │   ├── ./assets/images
+    │   └── ./assets/videos
+    ├── ./index.html
+    ├── ./package.json
+    ├── ./pages
+    │   ├── ./pages/contato.html
+    │   ├── ./pages/duvida.html
+    │   ├── ./pages/faq.html
+    │   └── ./pages/integrantes.html
+    ├── ./scripts
+    ├── ./style.css
+    ├── ./style.min.css
+    └── ./README.md
+    
+## Tecnologias Utilizadas
+No projeto foram utilizadas as seguintes tecnologias: 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> Javascript <br> 
+> HTML <br>
+> CSS <br>
 
-## Expanding the ESLint configuration
+## Integrantes
+- Camilo Micheletto Ribeiro da Silva - RM564113
+- Carlos André Silva - RM564968
+- Guilherme Ribeiro da Costa - RM562700
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Endereço Repositório Github
+[Para acessar o repositório do Github, Clique aqui!](https://github.com/Challenge-2025-Equipe-07/hc-frontend)
