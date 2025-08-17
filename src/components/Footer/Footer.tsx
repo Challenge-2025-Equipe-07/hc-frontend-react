@@ -2,8 +2,8 @@ import { LinkItem } from "../LinkItem/LinkItem";
 
 const Footer = () => {
   return (
-    <footer className="c-footer stack">
-      <div className="c-footer__body">
+    <footer className="bg-red-600 text-white px-4 py-2 rounded-lg grid col-span-full gap-4">
+      <div className="flex gap-x-4">
         <div className="stack">
           <img
             src="../assets/images/LogomarcaWhite.svg"
@@ -62,7 +62,7 @@ const Footer = () => {
           </li>
         </ul>
       </div>
-      <hr className="c-separator" />
+      <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700c-separator" />
       <small className="small">
         Desenvolvido com por Camilo, Carlos e Guilherme - Github
       </small>

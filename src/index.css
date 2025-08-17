@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+@theme {
+  --base-content-size: 1440px;
+  --content-size: 1140px;
+}
+
+@utility grid-layout {
+  grid-template-columns:
+    1fr min(var(--content-size, var(--base-content-size)), 100%)
+    1fr;
+  & > * {
+    grid-column: 2;
+  }
+}

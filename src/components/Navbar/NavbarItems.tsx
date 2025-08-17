@@ -2,7 +2,7 @@ import { LinkItem } from "../LinkItem/LinkItem";
 
 const NavbarItems = () => {
   return (
-    <nav role="navigation" className="c-navigation__menu">
+    <nav role="navigation" className="grid">
       <button
         className="c-button c-button--tertiary squared"
         data-js="mobile-button"
@@ -13,7 +13,7 @@ const NavbarItems = () => {
       >
         <i className="fa fa-bars" aria-hidden="true"></i>
       </button>
-      <ul className="c-list" id="menuList" aria-labelledby="menuButton">
+      <ul className="flex items-center justify-between gap-4 py-2" id="menuList" aria-labelledby="menuButton">
         <li className="c-list__item">
           <LinkItem route="/">Início</LinkItem>
         </li>
