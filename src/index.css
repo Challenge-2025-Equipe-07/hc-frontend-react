@@ -13,3 +13,52 @@
     grid-column: 2;
   }
 }
+
+@layer components {
+  .hero-title {
+    /* 800 4.5rem/160% */
+    font: theme("fontWeight.extrabold") theme("fontSize.7xl") / 1.6
+      var(--font-main);
+  }
+
+  .hero-subtitle {
+    /* 500 3.75rem/155% */
+    font: theme("fontWeight.medium") theme("fontSize.6xl") / 1.55
+      var(--font-main);
+  }
+
+  .heading {
+    /* 800 3rem/145% */
+    font: theme("fontWeight.extrabold") theme("fontSize.5xl") / 1.45
+      var(--font-main);
+  }
+
+  .subheading {
+    /* 200 2.25rem/145% */
+    font: theme("fontWeight.extralight") theme("fontSize.4xl") / 1.45
+      var(--font-main);
+  }
+
+  .title {
+    /* 700 1.875rem/150% */
+    font: theme("fontWeight.bold") theme("fontSize.3xl") /
+      theme("lineHeight.normal") var(--font-main);
+  }
+
+  .subtitle {
+    /* 200 1.5rem/150% */
+    font: theme("fontWeight.extralight") theme("fontSize.2xl") /
+      theme("lineHeight.normal") var(--font-main);
+  }
+
+  .body {
+    /* 400 1rem/140% */
+    font: theme("fontWeight.normal") theme("fontSize.base") / 1.4
+      var(--font-main);
+  }
+
+  .small {
+    /* 400 0.8rem/135% */
+    font: theme("fontWeight.normal") 0.8rem / 1.35 var(--font-main);
+  }
+}
