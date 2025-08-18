@@ -2,11 +2,15 @@ import { LinkItem } from "@/components";
 
 const NavbarWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
-    <header className="grid bg-red-600 text-white col-span-full rounded-lg px-4 py-2">
-      <div className="flex justify-between items-center">
+    <header className="col-span-full grid rounded-lg bg-red-600 px-4 py-2 text-white">
+      <div className="flex items-center justify-between">
         <LinkItem route="/" aria-label="Ir para home">
-          <img src="../assets/images/LogomarcaWhite.svg" alt="" />
-          <strong>Ajuda HC</strong>
+          <img
+            src="../assets/images/LogomarcaWhite.svg"
+            alt=""
+            role="presentation"
+          />
+          <strong className="title">Ajuda HC</strong>
         </LinkItem>
         {children}
       </div>

@@ -13,7 +13,11 @@ const NavbarItems = () => {
       >
         <i className="fa fa-bars" aria-hidden="true"></i>
       </button>
-      <ul className="flex items-center justify-between gap-4 py-2" id="menuList" aria-labelledby="menuButton">
+      <ul
+        className="flex items-center justify-between gap-4 py-2"
+        id="menuList"
+        aria-labelledby="menuButton"
+      >
         <li className="c-list__item">
           <LinkItem route="/">Início</LinkItem>
         </li>

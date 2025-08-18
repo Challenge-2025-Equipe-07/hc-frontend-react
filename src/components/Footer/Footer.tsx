@@ -2,7 +2,7 @@ import { LinkItem } from "../LinkItem/LinkItem";
 
 const Footer = () => {
   return (
-    <footer className="bg-red-600 text-white px-4 py-2 rounded-lg grid col-span-full gap-4">
+    <footer className="col-span-full grid flex-wrap gap-4 rounded-lg bg-red-600 px-4 py-2 text-white">
       <div className="flex gap-x-4">
         <div className="stack">
           <img
@@ -62,7 +62,7 @@ const Footer = () => {
           </li>
         </ul>
       </div>
-      <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700c-separator" />
+      <hr className="dark:bg-gray-700c-separator my-8 h-px border-0 bg-gray-200" />
       <small className="small">
         Desenvolvido com por Camilo, Carlos e Guilherme - Github
       </small>

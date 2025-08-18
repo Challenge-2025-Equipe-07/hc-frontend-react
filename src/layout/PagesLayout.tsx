@@ -3,13 +3,13 @@ import { Footer } from "../components/Footer/Footer";
 import { NavbarItems } from "../components/Navbar/NavbarItems";
 import { NavbarWrapper } from "../components/Navbar/NavbarWrapper";
 
-const PagesLayout = () => {
+const PagesLayout = ({ children }: { children?: React.ReactNode }) => {
   return (
-    <main className="grid grid-layout auto-rows-[max-content_1fr_max-content] min-h-svh p-4">
+    <main className="grid-layout grid min-h-svh auto-rows-[max-content_1fr_max-content] p-4">
       <NavbarWrapper>
         <NavbarItems />
       </NavbarWrapper>
-      <Outlet />
+      {children || <Outlet />}
       <Footer />
     </main>
   );
