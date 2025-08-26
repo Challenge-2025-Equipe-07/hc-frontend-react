@@ -6,8 +6,8 @@ import { Faq } from "@/pages/Faq/Faq";
 import { Duvida } from "@/pages/Duvida/Duvida";
 import { Contato } from "@/pages/Contato/Contato";
 import { SchedulingPage } from "@/pages/Scheduling/Scheduling";
-import { Landing } from "@/pages/Landing/Landing";
 import { ErrorPage } from "@/pages/Error/ErrorPage";
+import { ChatPage } from "@/pages/Chat/Chat";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +24,7 @@ const router = createBrowserRouter([
       { path: "/duvida", Component: Duvida },
       { path: "/contato", Component: Contato },
       { path: "/consulta", Component: SchedulingPage },
+      { path: "/chat", Component: ChatPage },
     ],
   },
 ]);
