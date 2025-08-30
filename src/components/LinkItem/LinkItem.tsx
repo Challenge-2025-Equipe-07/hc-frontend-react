@@ -5,7 +5,7 @@ const LinkItem = ({ route, children }: NavbarItemType) => {
   return (
     <NavLink
       to={route}
-      className={({ isActive }) => (isActive ? "text-red-300" : "")}
+      className={({ isActive }) => (isActive ? "text-blue-800" : "")}
     >
       {children}
     </NavLink>

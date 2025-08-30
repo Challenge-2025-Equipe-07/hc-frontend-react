@@ -1,17 +1,18 @@
-import { LinkItem } from "@/components";
+import { NavLink } from "react-router";
+import Logomarca from "@/assets/LogomarcaWhite.svg";
 
 const NavbarWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
-    <header className="col-span-full grid rounded-lg bg-blue-500 px-4 py-2 text-white">
+    <header className="fixed z-50 grid w-[calc(100%-32px)] rounded-2xl bg-blue-500 px-8 py-4 text-gray-50">
       <div className="flex items-center justify-between">
-        <LinkItem route="/" aria-label="Ir para home">
-          <img
-            src="../assets/images/LogomarcaWhite.svg"
-            alt=""
-            role="presentation"
-          />
-          <strong className="title">Ajuda HC</strong>
-        </LinkItem>
+        <NavLink
+          to="/"
+          aria-label="Ir para home"
+          className="flex items-center gap-x-2"
+        >
+          <img src={Logomarca} alt="" role="presentation" />
+          <strong className="subtitle">Reabili</strong>
+        </NavLink>
         {children}
       </div>
     </header>
