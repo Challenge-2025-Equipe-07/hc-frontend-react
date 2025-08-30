@@ -16,49 +16,58 @@
 
 @layer components {
   .hero-title {
-    /* 800 4.5rem/160% */
-    font: theme("fontWeight.extrabold") theme("fontSize.7xl") / 1.6
-      var(--font-main);
+    font-family: var(--font-main);
+    font-size: theme("fontSize.7xl");
+    font-weight: theme("fontWeight.extrabold");
+    line-height: 1.6;
   }
 
   .hero-subtitle {
-    /* 500 3.75rem/155% */
-    font: theme("fontWeight.medium") theme("fontSize.6xl") / 1.55
-      var(--font-main);
+    font-family: var(--font-main);
+    font-size: theme("fontSize.6xl");
+    font-weight: theme("fontWeight.medium");
+    line-height: 1.55;
   }
 
   .heading {
-    /* 800 3rem/145% */
-    font: theme("fontWeight.extrabold") theme("fontSize.5xl") / 1.45
-      var(--font-main);
+    font-family: var(--font-main);
+    font-size: theme("fontSize.5xl");
+    font-weight: theme("fontWeight.extrabold");
+    line-height: 1.45;
   }
 
   .subheading {
-    /* 200 2.25rem/145% */
-    font: theme("fontWeight.extralight") theme("fontSize.4xl") / 1.45
-      var(--font-main);
+    font-family: var(--font-main);
+    font-size: theme("fontSize.5xl");
+    font-weight: theme("fontWeight.extralight");
+    line-height: 1.45;
   }
 
   .title {
-    /* 700 1.875rem/150% */
-    font: theme("fontWeight.bold") theme("fontSize.3xl") /
-      theme("lineHeight.normal") var(--font-main);
+    font-family: var(--font-main);
+    font-size: theme("fontSize.3xl");
+    font-weight: theme("fontWeight.bold");
+    line-height: theme("lineHeight.normal");
   }
 
   .subtitle {
-    /* 200 1.5rem/150% */
-    font: theme("fontWeight.extralight") theme("fontSize.2xl") /
-      theme("lineHeight.normal") var(--font-main);
+    font-family: var(--font-main);
+    font-size: theme("fontSize.2xl");
+    font-weight: theme("fontWeight.normal");
+    line-height: theme("lineHeight.normal");
   }
 
   .body {
-    /* 400 1rem/140% */
-    font: theme("fontWeight.normal") theme("fontSize.base") / 1.4
-      var(--font-main);
+    font-family: var(--font-main);
+    font-size: theme("fontSize.base");
+    font-weight: theme("fontWeight.normal");
+    line-height: 1.4;
   }
 
   .small {
-    /* 400 0.8rem/135% */
-    font: theme("fontWeight.normal") 0.8rem / 1.35 var(--font-main);
+    font-family: var(--font-main);
+    font-size: 0.8rem;
+    font-weight: theme("fontWeight.normal");
+    line-height: 1.35;
   }
 }
