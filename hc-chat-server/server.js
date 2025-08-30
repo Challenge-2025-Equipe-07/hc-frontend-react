@@ -1,5 +1,3 @@
-// server.js
-
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
@@ -7,11 +5,9 @@ require("dotenv").config();
 const AssistantV2 = require("ibm-watson/assistant/v2");
 const { IamAuthenticator } = require("ibm-watson/auth");
 
-
 const app = express();
 app.use(express.json());
 app.use(cors());
-
 
 const assistant = new AssistantV2({
   version: "2021-11-27",
