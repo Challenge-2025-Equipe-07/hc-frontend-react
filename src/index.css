@@ -18,7 +18,7 @@
   .hero-title {
     font-family: var(--font-main);
     font-size: theme("fontSize.7xl");
-    font-weight: theme("fontWeight.extrabold");
+    font-weight: theme("fontWeight.semibold");
     line-height: 1.6;
   }
 
@@ -53,7 +53,7 @@
   .subtitle {
     font-family: var(--font-main);
     font-size: theme("fontSize.2xl");
-    font-weight: theme("fontWeight.normal");
+    font-weight: theme("fontWeight.light");
     line-height: theme("lineHeight.normal");
   }
 

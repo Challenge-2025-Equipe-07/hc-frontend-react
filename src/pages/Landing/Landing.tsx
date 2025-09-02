@@ -1,17 +1,28 @@
+import { BrandCard } from "./components/BrandCard";
 import { SearchComponent } from "./components/Search";
+import carf from "@/assets/carf.png";
 
 const Landing = () => {
   return (
-    <div className="container mx-auto px-4">
-      <SearchComponent />
-
-      {/* === Frequent Doubts Section === */}
-      <section className="py-12">
-        <h2 className="mb-8 text-3xl font-bold text-gray-800">
-          Dúvidas frequentes
+    <section className="container mx-auto px-4">
+      <header className="grid justify-items-center gap-y-2 py-16 text-center md:py-24">
+        <h1 className="hero-title max-w-xl text-gray-800">
+          Como podemos te ajudar hoje?
+        </h1>
+        <h2 className="subtitle text-gray-600">
+          Respondemos todas as dúvidas sobre sua reabilitação
         </h2>
+        <div className="mb-8 flex gap-x-5">
+          <BrandCard brand="hc" />
+          <BrandCard brand="imrea" />
+          <img src={carf} alt="1º instituição no Brasil acreditada pela CARF" />
+        </div>
+        <SearchComponent />
+      </header>
+
+      <div className="py-12">
+        <h2 className="title text-gray-800">Como podemos te ajudar hoje?</h2>
         <div className="flex gap-6 overflow-x-auto pb-4">
-          {/* Card 1 */}
           <div className="flex w-72 flex-shrink-0 flex-col justify-between rounded-xl bg-yellow-300/80 p-6">
             <h3 className="text-2xl font-bold text-gray-800">
               Como criar o RG HC?
@@ -35,7 +46,6 @@ const Landing = () => {
               {/* Saiba mais <FaArrowRight /> */}
             </a>
           </div>
-          {/* Card 3 */}
           <div className="flex w-72 flex-shrink-0 flex-col justify-between rounded-xl bg-rose-300/80 p-6">
             <h3 className="text-2xl font-bold text-gray-800">
               Como criar o RG HC?
@@ -60,7 +70,7 @@ const Landing = () => {
             </a>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* === Teleconsulta Callout Section === */}
       <section className="my-16 rounded-2xl bg-amber-50">
@@ -140,7 +150,7 @@ const Landing = () => {
           </div>
         </div>
       </section>
-    </div>
+    </section>
   );
 };
 

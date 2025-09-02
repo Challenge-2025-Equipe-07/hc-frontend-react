@@ -4,6 +4,8 @@ import {
   QuestionIcon,
   ArrowUpRightIcon,
   MicrophoneIcon,
+  MicrophoneSlashIcon,
+  EarIcon,
 } from "@phosphor-icons/react";
 
 export const ICON_STRINGS = {
@@ -11,6 +13,8 @@ export const ICON_STRINGS = {
   question: QuestionIcon,
   redirect: ArrowUpRightIcon,
   microphone: MicrophoneIcon,
+  microphoneOff: MicrophoneSlashIcon,
+  ear: EarIcon,
 };
 
 export const BUTTON_VARIANTS = tv({
