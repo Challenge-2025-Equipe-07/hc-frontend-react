@@ -34,7 +34,7 @@ const NavbarItems = () => {
 
       {isWeb || open ? (
         <ul
-          className={`right-0 bottom-0 grid text-gray-900 sm:max-lg:absolute sm:max-lg:max-w-40 sm:max-lg:translate-y-[calc(100%+8px)] sm:max-lg:overflow-hidden sm:max-lg:rounded-lg sm:max-lg:border-1 sm:max-lg:border-gray-200 sm:max-lg:bg-gray-50 lg:flex lg:items-center lg:justify-between lg:gap-4 lg:p-0 lg:text-inherit`}
+          className={`right-0 bottom-0 grid text-gray-900 max-lg:absolute max-lg:max-w-40 max-lg:translate-y-[calc(100%+8px)] max-lg:overflow-hidden max-lg:rounded-lg max-lg:border-1 max-lg:border-gray-200 max-lg:bg-gray-50 lg:flex lg:items-center lg:justify-between lg:gap-4 lg:p-0 lg:text-inherit`}
           id="menuList"
           aria-labelledby="menuButton"
         >
