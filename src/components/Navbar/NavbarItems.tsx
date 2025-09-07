@@ -6,13 +6,11 @@ import { Button } from "@/components/Button/Button";
 
 const NavbarItems = () => {
   const [open, setOpen] = useState(false);
-  const { isWeb, breakpoint } = useResponsive();
+  const { isWeb } = useResponsive();
 
   const handleOpen = () => {
     setOpen((prev) => !prev);
   };
-
-  console.log({ isWeb, open, breakpoint });
 
   return (
     <nav role="navigation" className="flex gap-x-4 sm:max-lg:flex-row-reverse">

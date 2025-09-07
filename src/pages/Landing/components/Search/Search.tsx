@@ -26,7 +26,6 @@ const SearchComponent = () => {
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Searching for:", searchTerm);
   };
 
   const iconToShow = () => {

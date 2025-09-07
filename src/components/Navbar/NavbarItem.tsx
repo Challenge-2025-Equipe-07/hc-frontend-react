@@ -7,7 +7,7 @@ const NavbarItem = ({ children, to }: NavbarItemsProps) => {
       <NavLink
         to={to}
         className={({ isActive }) =>
-          `block h-full w-full ${isActive ? "text-blue-800 hover:text-blue-200" : ""}`
+          `block h-full w-full ${isActive ? "font-bold text-blue-800 hover:text-blue-200" : ""}`
         }
       >
         {children}
