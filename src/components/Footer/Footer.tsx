@@ -1,63 +1,65 @@
 import { LinkItem } from "../LinkItem/LinkItem";
+import {
+  InstagramLogoIcon,
+  YoutubeLogoIcon,
+  LinkedinLogoIcon,
+} from "@phosphor-icons/react";
+import IMREALogoWhite from "@/assets/LogomarcaWhite.svg";
 
 const Footer = () => {
   return (
-    <footer className="col-span-full grid flex-wrap gap-4 rounded-lg bg-red-600 px-4 py-2 text-white">
-      <div className="flex gap-x-4">
-        <div className="stack">
-          <img
-            src="../assets/images/LogomarcaWhite.svg"
-            alt=""
-            className="c-footer__logo"
-          />
-          <h2 className="body">
-            <strong>Ajuda HC</strong>
+    <footer className="col-span-full grid w-[calc(100%-32px)] flex-wrap gap-5 rounded-2xl bg-blue-500 px-8 py-4 text-gray-50">
+      <div className="flex flex-wrap gap-x-12 gap-y-4">
+        <div className="grid auto-rows-min">
+          <img src={IMREALogoWhite} alt="Logotipo IMREA" />
+          <h2 className="subtitle font-light">
+            <strong>Reabili</strong>
           </h2>
         </div>
-        <ul className="c-list" id="menuList" aria-labelledby="menuButton">
-          <li className="c-list__item">
+        <ul className="grid gap-y-2" id="menuList" aria-labelledby="menuButton">
+          <li>
             <LinkItem route="/">Início</LinkItem>
           </li>
-          <li className="c-list__item">
+          <li>
             <LinkItem route="/faq">FAQ</LinkItem>
           </li>
-          <li className="c-list__item">
+          <li>
             <LinkItem route="/integrantes">Integrantes</LinkItem>
           </li>
-          <li className="c-list__item">
+          <li>
             <LinkItem route="/contato">Contato</LinkItem>
           </li>
         </ul>
         <ul
-          className="c-footer__social c-list row"
+          className="ml-auto flex flex-wrap gap-x-4"
           id="menuList"
           aria-labelledby="menuButton"
         >
-          <li className="c-list__item">
+          <li>
             <a
               href="#"
               className="link link--decorated body"
               aria-label="Perfil do instagram do HC"
             >
-              <i className="fa fa-instagram"></i>
+              <InstagramLogoIcon size={24} />
             </a>
           </li>
-          <li className="c-list__item">
+          <li>
             <a
               href="#"
               className="link link--decorated body"
               aria-label="Perfil do youtube do HC"
             >
-              <i className="fa fa-youtube"></i>
+              <YoutubeLogoIcon size={24} />
             </a>
           </li>
-          <li className="c-list__item">
+          <li>
             <a
               href="#"
               className="link link--decorated body"
               aria-label="Perfil do Linkedin do HC"
             >
-              <i className="fa fa-linkedin"></i>
+              <LinkedinLogoIcon size={24} />
             </a>
           </li>
         </ul>
