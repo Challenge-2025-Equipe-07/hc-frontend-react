@@ -45,6 +45,9 @@
     font-size: theme("fontSize.7xl");
     font-weight: theme("fontWeight.semibold");
     line-height: 1.6;
+    @media (max-width: 1024px) {
+      font-size: theme("fontSize.5xl");
+    }
   }
 
   .hero-subtitle {
