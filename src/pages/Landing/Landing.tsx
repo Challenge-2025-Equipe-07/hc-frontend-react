@@ -77,7 +77,9 @@ const Landing = () => {
               Não fique na espera à toa, a teleconsulta pode ser até 4x mais
               rápida do que uma consulta presencial.
             </p>
-            <Button icon="question">Saiba mais</Button>
+            <Button asLink to={"/"} icon="question">
+              Saiba mais
+            </Button>
           </div>
         </div>
       </section>

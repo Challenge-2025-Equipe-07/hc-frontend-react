@@ -1,17 +1,24 @@
+// Button.tsx
+import { Link } from "react-router";
 import { ICON_STRINGS, BUTTON_VARIANTS } from "./Button.constants";
 import type { ButtonProps } from "./Button.types";
 
-const Button = ({
-  children,
-  icon,
-  variant = "primary",
-  ...props
-}: ButtonProps & React.ComponentProps<"button">) => {
+const Button = (props: ButtonProps) => {
+  const { asLink, variant = "primary", icon, children, to } = props;
   const IconComponent = ICON_STRINGS[icon || "redirect"];
   const selectedVariant = BUTTON_VARIANTS({ color: variant });
 
+  console.log(asLink);
+  if (asLink) {
+    return (
+      <Link to={to} className={selectedVariant}>
+        {children} {icon && <IconComponent size={24} color="currentColor" />}
+      </Link>
+    );
+  }
+
   return (
-    <button className={selectedVariant} {...props}>
+    <button className={selectedVariant}>
       {children} {icon && <IconComponent size={24} color="currentColor" />}
     </button>
   );
