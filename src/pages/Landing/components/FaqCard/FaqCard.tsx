@@ -6,7 +6,6 @@ import { FAQ_CARD_VARIANTS } from "./FaqCard.constants";
 const FaqCard = (props: FaqCardProps) => {
   const { title, link, theme } = props;
   const selectedVariant = FAQ_CARD_VARIANTS({ color: theme });
-  console.log(selectedVariant);
 
   return (
     <div className={selectedVariant}>
