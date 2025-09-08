@@ -60,13 +60,13 @@
   .heading {
     font-family: var(--font-main);
     font-size: theme("fontSize.5xl");
-    font-weight: theme("fontWeight.extrabold");
+    font-weight: theme("fontWeight.bold");
     line-height: 1.45;
   }
 
   .subheading {
     font-family: var(--font-main);
-    font-size: theme("fontSize.5xl");
+    font-size: theme("fontSize.3xl");
     font-weight: theme("fontWeight.extralight");
     line-height: 1.45;
   }
