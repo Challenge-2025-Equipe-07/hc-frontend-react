@@ -42,7 +42,9 @@ const NavbarItems = () => {
           <NavbarItem to="/contato">Contato</NavbarItem>
         </ul>
       ) : null}
-      <Button variant="tertiary">Entrar</Button>
+      <Button asLink to={"/"} variant="tertiary">
+        Entrar
+      </Button>
     </nav>
   );
 };
