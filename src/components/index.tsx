@@ -4,4 +4,3 @@ export { NavbarItems } from "./Navbar/NavbarItems";
 export { Heading } from "./Heading/Heading";
 export { Footer } from "./Footer/Footer";
 export { Button } from "./Button/Button";
-export { Accordion } from "./Accordion/Accordion";
