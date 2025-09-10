@@ -1,21 +1,19 @@
 import React, { useState } from "react";
-import type { FieldValues } from "react-hook-form";
 import { INPUT_VARIANTS } from "./Input.contants";
 import type { TextareaProps } from "./Textarea.types";
 
-const Textarea = <T extends FieldValues>({
+const Textarea = ({
   label,
   id,
   name,
-  register,
   className,
   maxLength = 500,
   variant = "blue",
   ...rest
-}: TextareaProps<T>) => {
+}: TextareaProps) => {
   const [charCount, setCharCount] = useState(0);
 
-  const { onChange, ...registerProps } = register(name);
+  const { onChange } = rest;
 
   const {
     base,
@@ -24,7 +22,7 @@ const Textarea = <T extends FieldValues>({
   } = INPUT_VARIANTS({ color: variant });
 
   const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    onChange(e);
+    if (onChange) onChange(e);
     setCharCount(e.target.value.length);
   };
 
@@ -36,11 +34,11 @@ const Textarea = <T extends FieldValues>({
       <div className="relative">
         <textarea
           id={id}
+          name={name}
           maxLength={maxLength}
           className={`${base()} ${className || ""} `}
-          {...rest}
-          {...registerProps}
           onChange={handleTextareaChange}
+          {...rest}
         />
         <span className="absolute right-3 bottom-2 text-sm text-gray-800">
           {charCount}/{maxLength}

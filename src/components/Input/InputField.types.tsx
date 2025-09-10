@@ -1,10 +1,9 @@
-import type { UseFormRegister, Path, FieldValues } from "react-hook-form";
+
 import React from "react";
 
-export type InputFieldProps<T extends FieldValues> = {
+export type InputFieldProps = {
   label: string;
   id: string;
-  name: Path<T>;
+  name: string;
   variant?: "blue" | "light";
-  register: UseFormRegister<T>;
 } & Omit<React.ComponentProps<"input">, "name">;

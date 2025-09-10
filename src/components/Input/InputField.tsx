@@ -1,16 +1,14 @@
 import { INPUT_VARIANTS } from "./Input.contants";
 import type { InputFieldProps } from "./InputField.types";
-import type { FieldValues } from "react-hook-form";
 
-const InputField = <T extends FieldValues>({
+const InputField = ({
   label,
   id,
   name,
-  register,
   className,
   variant = "blue",
   ...rest
-}: InputFieldProps<T>) => {
+}: InputFieldProps) => {
   const {
     base,
     wrapper,
@@ -23,9 +21,9 @@ const InputField = <T extends FieldValues>({
       </label>
       <input
         id={id}
+        name={name}
         className={`${base()} ${className || ""} `}
         {...rest}
-        {...register(name)}
       />
     </div>
   );

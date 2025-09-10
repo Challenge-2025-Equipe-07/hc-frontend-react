@@ -12,7 +12,7 @@ const Contato = () => {
   };
 
   return (
-    <section className="grid gap-y-12 my-8">
+    <section className="my-8 grid gap-y-12">
       <Heading
         title="Dúvidas, perguntas ou suporte?"
         subtitle="Acesse nosso FAQ ou envie sua pergunta pelo e-mail através do formulário abaixo"
@@ -23,39 +23,43 @@ const Contato = () => {
         </h1>
         <Address />
 
-        <form onSubmit={handleSubmit(onSubmit)} className="max-lg:mr-auto grid w-full gap-y-4 max-w-80 justify-self-end">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="grid w-full max-w-80 gap-y-4 justify-self-end max-lg:mr-auto"
+        >
           <Input
             id="nome"
             label="Nome"
-            name="name"
-            register={register}
+            {...register("name", {
+              required: true,
+              minLength: 1,
+            })}
             placeholder="Nome e sobrenome"
-            required
-            minLength={1}
             autoComplete="name"
             type="text"
           />
           <Input
             id="email"
             label="Email"
-            name="email"
-            register={register}
-            placeholder="Nome e sobrenome"
+            {...register("email", {
+              required: true,
+              minLength: 1,
+            })}
+            placeholder="Seu e-mail principal"
             required
             autoComplete="email"
-            type="text"
+            type="email"
           />
           <Textarea
             id="message"
             label="Mensagem"
-            name="message"
-            register={register}
+            {...register("message", {
+              maxLength: 500,
+            })}
             placeholder="Digite sua mensagem aqui..."
             rows={4}
-            maxLength={500}
-            required
           />
-          <Button>Enviar</Button>
+          <Button className="justify-self-end">Enviar</Button>
         </form>
       </div>
     </section>
