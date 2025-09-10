@@ -1,5 +1,5 @@
-import { Heading } from "../../components/Heading/Heading";
 import { TeamCard } from "./components/TeamCard/TeamCard";
+import { Heading } from "@/components/Heading/Heading";
 import CamiloMicheletto from "@/assets/TeamCamiloMicheletto.jpeg";
 import CarlosSilva from "@/assets/TeamCarlosSilva.jpeg";
 import GuilhermeRibeiro from "@/assets/TeamGuilhermeRibeiro.jpeg";

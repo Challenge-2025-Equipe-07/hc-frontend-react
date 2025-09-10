@@ -1,7 +1,26 @@
+import { Heading, Input } from "@/components";
+import { useForm } from "react-hook-form";
+import type { SubmitHandler } from "react-hook-form";
+
+type FormValues = {
+  name: string;
+  email: string;
+};
+
 const Contato = () => {
+  const { register, handleSubmit } = useForm<FormValues>();
+
+  const onSubmit: SubmitHandler<FormValues> = (data) => {
+    console.log("Form data submitted:", data);
+  };
+
   return (
     <section className="l-contact__wrapper">
       <div className="l-contact__col stack">
+        <Heading
+          title="Dúvidas, perguntas ou suporte?"
+          subtitle="Acesse nosso FAQ ou envie sua pergunta pelo e-mail através do formulário abaixo"
+        />
         <h1 className="l-contact__title">Contato</h1>
         <address className="l-contact__info">
           <h2 className="body">
@@ -28,67 +47,29 @@ const Contato = () => {
             <time>Segunda a sexta-feira das 07h às 18h</time>.
           </p>
         </address>
-        <div>
-          <h2 className="body">
-            <strong>Redes sociais</strong>
-          </h2>
-          <ul className="c-list row" id="menuList" aria-labelledby="menuButton">
-            <li className="c-list__item">
-              <a
-                href="#"
-                className="link link--decorated body"
-                aria-label="Perfil do instagram do HC"
-              >
-                <i className="fa fa-instagram"></i>
-              </a>
-            </li>
-            <li className="c-list__item">
-              <a
-                href="#"
-                className="link link--decorated body"
-                aria-label="Perfil do youtube do HC"
-              >
-                <i className="fa fa-youtube"></i>
-              </a>
-            </li>
-            <li className="c-list__item">
-              <a
-                href="#"
-                className="link link--decorated body"
-                aria-label="Perfil do Linkedin do HC"
-              >
-                <i className="fa fa-linkedin"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
       </div>
-      <form action="" className="c-contact stack" data-js="contact-form">
-        <label htmlFor="name" className="c-label">
-          Nome
-          <input
-            className="c-input"
-            type="text"
-            id="name"
-            name="name"
-            autoComplete="name"
-            required
-            minLength={1}
-          />
-          <span className="c-error"></span>
-        </label>
-        <label htmlFor="email" className="c-label">
-          E-mail
-          <input
-            className="c-input"
-            type="email"
-            id="email"
-            name="email"
-            autoComplete="email"
-            required
-          />
-          <span className="c-error"></span>
-        </label>
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 p-8">
+        <Input
+          id="nome"
+          label="Nome"
+          name="name"
+          register={register}
+          placeholder="Nome e sobrenome"
+          required
+          minLength={1}
+          autoComplete="name"
+          type="text"
+        />
+        <Input
+          id="email"
+          label="Email"
+          name="email"
+          register={register}
+          placeholder="Nome e sobrenome"
+          required
+          autoComplete="email"
+          type="text"
+        />
         <label htmlFor="message" className="c-label">
           Mensagem
           <textarea
