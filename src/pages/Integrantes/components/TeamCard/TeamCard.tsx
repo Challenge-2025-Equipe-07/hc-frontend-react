@@ -1,6 +1,7 @@
 import { LinkedinLogoIcon, GithubLogoIcon } from "@phosphor-icons/react";
 import type { TeamCardProps } from "./TeamCard.types";
 
+
 const TeamCard = (props: TeamCardProps) => {
   const {
     image,
@@ -14,9 +15,9 @@ const TeamCard = (props: TeamCardProps) => {
       <img
         src={image}
         alt={name}
-        className="aspect-square w-full max-w-[296px] object-cover"
+        className="aspect-square w-full max-w-[296px] rounded-2xl object-cover"
       />
-      <div className="absolute bottom-0 z-1 grid min-w-80 translate-y-2/5 grid-cols-[max-content_1fr] gap-x-3 gap-y-2 rounded-2xl bg-gray-50 px-4 py-2 shadow-xl">
+      <div className="absolute bottom-0 z-1 grid min-w-80 translate-y-2/5 grid-cols-[1fr_max-content] gap-x-3 gap-y-2 rounded-2xl bg-gray-50 px-4 py-2 shadow-xl">
         <h2 className="subtitle font-bold">{name}</h2>
         <p className="body col-start-1 row-start-2">{description}</p>
         <ul className="row-span-2 flex h-full items-center gap-2">

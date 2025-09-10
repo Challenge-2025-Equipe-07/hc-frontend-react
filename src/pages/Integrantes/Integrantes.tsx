@@ -1,14 +1,17 @@
 import { Heading } from "../../components/Heading/Heading";
 import { TeamCard } from "./components/TeamCard/TeamCard";
+import CamiloMicheletto from "@/assets/TeamCamiloMicheletto.jpeg";
+import CarlosSilva from "@/assets/TeamCarlosSilva.jpeg";
+import GuilhermeRibeiro from "@/assets/TeamGuilhermeRibeiro.jpeg";
 
 const Integrantes = () => {
   return (
-    <section className="grid gap-6 pt-[72px] pb-12">
-      <Heading title="Integrantes do time" className="w-full text-center" />
-      <div className="flex flex-wrap justify-center gap-12">
+    <section className="grid gap-6 pb-12">
+      <Heading title="Integrantes do time" />
+      <div className="flex flex-wrap justify-between gap-12">
         <TeamCard
           name="Camilo Micheletto"
-          image="https://placehold.co/296x300"
+          image={CamiloMicheletto}
           description="RM: 564113 | 1TDSPW"
           links={{
             linkedin: "https://linkedin.com/in/camilo-micheletto",
@@ -17,7 +20,7 @@ const Integrantes = () => {
         />
         <TeamCard
           name="Carlos André"
-          image="https://placehold.co/296x300"
+          image={CarlosSilva}
           description="RM: 564968 | 1TDSPW"
           links={{
             linkedin: "https://www.linkedin.com/in/ukarlito/",
@@ -26,7 +29,7 @@ const Integrantes = () => {
         />
         <TeamCard
           name="Guilherme Ribeiro"
-          image="https://placehold.co/296x300"
+          image={GuilhermeRibeiro}
           description="RM: 562700 | 1TDSPW"
           links={{
             linkedin: "https://www.linkedin.com/in/willahelm-ribeiro/",
