@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import type { FieldValues } from "react-hook-form";
+import { INPUT_VARIANTS } from "./Input.contants";
 import type { TextareaProps } from "./Textarea.types";
 
 const Textarea = <T extends FieldValues>({
@@ -9,11 +10,18 @@ const Textarea = <T extends FieldValues>({
   register,
   className,
   maxLength = 500,
+  variant = "blue",
   ...rest
 }: TextareaProps<T>) => {
   const [charCount, setCharCount] = useState(0);
 
   const { onChange, ...registerProps } = register(name);
+
+  const {
+    base,
+    wrapper,
+    label: labelStyle,
+  } = INPUT_VARIANTS({ color: variant });
 
   const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     onChange(e);
@@ -21,15 +29,15 @@ const Textarea = <T extends FieldValues>({
   };
 
   return (
-    <div className="grid gap-y-1">
-      <label htmlFor={id} className="text-blue-600">
+    <div className={wrapper()}>
+      <label htmlFor={id} className={labelStyle()}>
         {label}
       </label>
       <div className="relative">
         <textarea
           id={id}
           maxLength={maxLength}
-          className={`w-full resize-y rounded-md border border-gray-50 px-4 py-2 placeholder-blue-500 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none ${className || ""} `}
+          className={`${base()} ${className || ""} `}
           {...rest}
           {...registerProps}
           onChange={handleTextareaChange}

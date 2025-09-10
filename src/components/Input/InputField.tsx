@@ -1,3 +1,4 @@
+import { INPUT_VARIANTS } from "./Input.contants";
 import type { InputFieldProps } from "./InputField.types";
 import type { FieldValues } from "react-hook-form";
 
@@ -7,16 +8,22 @@ const InputField = <T extends FieldValues>({
   name,
   register,
   className,
+  variant = "blue",
   ...rest
 }: InputFieldProps<T>) => {
+  const {
+    base,
+    wrapper,
+    label: labelStyle,
+  } = INPUT_VARIANTS({ color: variant });
   return (
-    <div className="grid w-full max-w-xs gap-y-1">
-      <label htmlFor={id} className="text-blue-600">
+    <div className={wrapper()}>
+      <label htmlFor={id} className={labelStyle()}>
         {label}
       </label>
       <input
         id={id}
-        className={`w-full rounded-md border border-gray-50 px-4 py-2 placeholder-blue-500 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none ${className || ""} `}
+        className={`${base()} ${className || ""} `}
         {...rest}
         {...register(name)}
       />

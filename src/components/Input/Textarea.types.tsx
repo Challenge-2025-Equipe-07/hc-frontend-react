@@ -6,4 +6,5 @@ export type TextareaProps<T extends FieldValues> = {
   id: string;
   name: Path<T>;
   register: UseFormRegister<T>;
+  variant?: "blue" | "light";
 } & React.ComponentProps<"textarea">;
