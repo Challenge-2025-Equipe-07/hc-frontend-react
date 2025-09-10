@@ -12,7 +12,7 @@ import ExemploVideoChamada2 from "@/assets/ExemploVideoChamada2.png";
 const Landing = () => {
   return (
     <section className="container mx-auto px-4">
-      <header className="grid justify-items-center gap-y-2 py-16 text-center md:py-24">
+      <header className="grid justify-items-center gap-y-2 py-16 text-center">
         <h1 className="hero-title max-w-xl text-gray-800">
           Como podemos te ajudar hoje?
         </h1>
