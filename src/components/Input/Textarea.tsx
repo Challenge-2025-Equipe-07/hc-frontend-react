@@ -21,20 +21,20 @@ const Textarea = <T extends FieldValues>({
   };
 
   return (
-    <div className="w-full">
-      <label htmlFor={id} className="mb-2 block font-bold text-blue-600">
+    <div className="grid gap-y-1">
+      <label htmlFor={id} className="text-blue-600">
         {label}
       </label>
       <div className="relative">
         <textarea
           id={id}
           maxLength={maxLength}
-          className={`w-full resize-y rounded-md border border-gray-300 px-4 py-2 placeholder-gray-400 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none ${className || ""} `}
+          className={`w-full resize-y rounded-md border border-gray-50 px-4 py-2 placeholder-blue-500 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none ${className || ""} `}
           {...rest}
           {...registerProps}
           onChange={handleTextareaChange}
         />
-        <span className="absolute right-3 bottom-2 text-sm text-gray-500">
+        <span className="absolute right-3 bottom-2 text-sm text-gray-800">
           {charCount}/{maxLength}
         </span>
       </div>

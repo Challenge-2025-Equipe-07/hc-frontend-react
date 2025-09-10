@@ -1,7 +1,7 @@
 const Address = () => {
   return (
-    <address className="grid gap-y-2 not-italic">
-      <h2 className="body">
+    <address className="grid auto-rows-max content-center gap-y-1 not-italic text-gray-900">
+      <h2 className="subtitle font-bold mb-2">
         <strong> Informações gerais </strong>
       </h2>
       <p>

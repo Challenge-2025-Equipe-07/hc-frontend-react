@@ -10,13 +10,13 @@ const InputField = <T extends FieldValues>({
   ...rest
 }: InputFieldProps<T>) => {
   return (
-    <div className="w-full max-w-xs">
-      <label htmlFor={id} className="mb-2 block font-bold text-blue-600">
+    <div className="grid w-full max-w-xs gap-y-1">
+      <label htmlFor={id} className="text-blue-600">
         {label}
       </label>
       <input
         id={id}
-        className={`w-full rounded-md border border-gray-300 px-4 py-2 placeholder-gray-400 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none ${className || ""} `}
+        className={`w-full rounded-md border border-gray-50 px-4 py-2 placeholder-blue-500 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none ${className || ""} `}
         {...rest}
         {...register(name)}
       />
