@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router";
-import App from "@/App";
+import { Landing } from "@/pages/Landing/Landing";
 import { Integrantes } from "@/pages/Integrantes/Integrantes";
 import { PagesLayout } from "@/layout/PagesLayout";
 import { Faq } from "@/pages/Faq/Faq";
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
       </PagesLayout>
     ),
     children: [
-      { index: true, Component: App },
+      { index: true, Component: Landing },
       { path: "/integrantes", Component: Integrantes },
       { path: "/faq", Component: Faq },
       { path: "/duvida", Component: Duvida },

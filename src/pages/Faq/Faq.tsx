@@ -5,7 +5,7 @@ import { FAQ_ITEMS } from "./Faq.constants";
 const Faq = () => {
   const hasItems = FAQ_ITEMS && Boolean(FAQ_ITEMS.length);
   return (
-    <section className="grid gap-6 pt-[72px] pb-8">
+    <section className="grid gap-6 pb-8">
       <Heading
         title="FAQ"
         subtitle="Perguntas feitas frequentemente pelos usuários"

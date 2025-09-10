@@ -7,7 +7,7 @@ const PagesLayout = ({ children }: { children?: React.ReactNode }) => {
       <Navbar>
         <NavbarItems />
       </Navbar>
-      {children || <Outlet />}
+      <div className="pt-[72px]">{children || <Outlet />}</div>
       <Footer />
     </main>
   );
