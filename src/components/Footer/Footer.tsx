@@ -8,7 +8,7 @@ import IMREALogoWhite from "@/assets/LogomarcaWhite.svg";
 
 const Footer = () => {
   return (
-    <footer className="col-span-full mt-auto grid h-max w-[calc(100%-32px)] flex-wrap gap-5 rounded-2xl bg-blue-500 px-8 py-4 text-gray-50">
+    <footer className="col-span-full mt-auto grid h-max w-full flex-wrap gap-5 rounded-2xl bg-blue-500 px-8 py-4 text-gray-50">
       <div className="flex flex-wrap gap-x-12 gap-y-4">
         <div className="grid auto-rows-min">
           <img src={IMREALogoWhite} alt="Logotipo IMREA" />
