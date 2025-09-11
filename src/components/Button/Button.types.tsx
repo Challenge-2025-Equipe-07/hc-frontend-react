@@ -3,7 +3,7 @@ import type { LinkProps } from "react-router";
 import { ICON_STRINGS, BUTTON_VARIANTS } from "./Button.constants";
 
 type BaseButtonProps = {
-  children: ReactNode;
+  children?: ReactNode;
   icon?: keyof typeof ICON_STRINGS;
   variant?: keyof typeof BUTTON_VARIANTS.variants.color;
   to?: string;

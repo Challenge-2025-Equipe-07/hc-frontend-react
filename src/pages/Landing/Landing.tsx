@@ -19,7 +19,7 @@ const Landing = () => {
         <h2 className="subtitle text-gray-600">
           Respondemos todas as dúvidas sobre sua reabilitação
         </h2>
-        <div className="mb-8 flex gap-x-5">
+        <div className="mb-8 flex flex-wrap gap-x-5">
           <BrandCard brand="hc" />
           <BrandCard brand="imrea" />
           <img src={Carf} alt="1º instituição no Brasil acreditada pela CARF" />
