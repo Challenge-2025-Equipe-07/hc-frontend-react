@@ -8,18 +8,14 @@ const Textarea = ({
   name,
   className,
   maxLength = 500,
-  variant = "blue",
+  color = "blue",
   ...rest
 }: TextareaProps) => {
   const [charCount, setCharCount] = useState(0);
 
   const { onChange } = rest;
 
-  const {
-    base,
-    wrapper,
-    label: labelStyle,
-  } = INPUT_VARIANTS({ color: variant });
+  const { base, wrapper, label: labelStyle } = INPUT_VARIANTS({ color });
 
   const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     if (onChange) onChange(e);

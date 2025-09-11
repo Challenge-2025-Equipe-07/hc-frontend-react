@@ -6,14 +6,10 @@ const InputField = ({
   id,
   name,
   className,
-  variant = "blue",
+  color = "blue",
   ...rest
 }: InputFieldProps) => {
-  const {
-    base,
-    wrapper,
-    label: labelStyle,
-  } = INPUT_VARIANTS({ color: variant });
+  const { base, wrapper, label: labelStyle } = INPUT_VARIANTS({ color });
   return (
     <div className={wrapper()}>
       <label htmlFor={id} className={labelStyle()}>

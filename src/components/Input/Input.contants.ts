@@ -4,7 +4,8 @@ export const INPUT_VARIANTS = tv({
   slots: {
     wrapper: "grid w-full max-w-xs gap-y-1",
     base: "w-fit flex gap-2 body px-3 py-2 rounded-3xl focus:ring-2 ring-blue-500 border-1 transition-colors duration-300 ease-in-out",
-    label: "text-blue-600",
+    label:
+      "text-blue-600 peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
   },
   variants: {
     color: {

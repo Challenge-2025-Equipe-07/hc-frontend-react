@@ -1,9 +1,12 @@
-
 import React from "react";
+import { INPUT_VARIANTS } from "./Input.contants";
+import type { VariantProps } from "tailwind-variants/lite";
+
+type InputVariantProps = VariantProps<typeof INPUT_VARIANTS>;
 
 export type InputFieldProps = {
   label: string;
   id: string;
   name: string;
-  variant?: "blue" | "light";
-} & Omit<React.ComponentProps<"input">, "name">;
+} & Omit<React.ComponentProps<"input">, "name"> &
+  InputVariantProps;
