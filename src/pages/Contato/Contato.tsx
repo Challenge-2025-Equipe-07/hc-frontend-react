@@ -12,7 +12,7 @@ const Contato = () => {
   };
 
   return (
-    <section className="my-8 grid gap-y-12">
+    <section className="my-8 grid gap-y-16">
       <Heading
         title="Dúvidas, perguntas ou suporte?"
         subtitle="Acesse nosso FAQ ou envie sua pergunta pelo e-mail através do formulário abaixo"
