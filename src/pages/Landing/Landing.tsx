@@ -8,8 +8,23 @@ import CardTelephoneExample from "@/assets/CardTelephoneExample.png";
 import Carf from "@/assets/Carf.png";
 import ExemploVideoChamada1 from "@/assets/ExemploVideoChamada1.png";
 import ExemploVideoChamada2 from "@/assets/ExemploVideoChamada2.png";
+import { useEffect, useState } from "react";
+import type { ContentDTO } from "@/types/global.types";
 
 const Landing = () => {
+  const [content, setContent] = useState<Array<ContentDTO>>([]);
+
+  useEffect(() => {
+    const getContent = async () => {
+      const fetchContent = await fetch("http://localhost:3000/content");
+      const parseJson = await fetchContent.json();
+
+      setContent(parseJson);
+    };
+
+    getContent();
+  }, []);
+
   return (
     <section className="container mx-auto px-4">
       <header className="grid justify-items-center gap-y-2 py-16 text-center">
@@ -47,10 +62,25 @@ const Landing = () => {
       <div className="grid gap-y-6 py-12">
         <h2 className="title text-gray-800">Como podemos te ajudar hoje?</h2>
         <div className="flex gap-6 overflow-x-auto pb-4">
-          <FaqCard theme="blue" title="Teste mano" link="/" />
-          <FaqCard theme="yellow" title="Teste mano" link="/" />
-          <FaqCard theme="pink" title="Teste mano" link="/" />
-          <FaqCard theme="blue" title="Teste mano" link="/" />
+          {content &&
+            content.map((contentItem, index) => {
+              const contentColor = () => {
+                if (index % 3 == 0) return "pink";
+                if (index % 2 == 0) return "yellow";
+                return "blue";
+              };
+
+              const contentUriByName = encodeURIComponent(contentItem.name);
+
+              return (
+                <FaqCard
+                  theme={contentColor()}
+                  title={contentItem.name}
+                  link={`/duvida/${contentUriByName}`}
+                  key={`${index}-${contentItem.name}`}
+                />
+              );
+            })}
         </div>
       </div>
 

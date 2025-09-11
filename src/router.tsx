@@ -21,7 +21,7 @@ const router = createBrowserRouter([
       { index: true, Component: Landing },
       { path: "/integrantes", Component: Integrantes },
       { path: "/faq", Component: Faq },
-      { path: "/duvida", Component: Duvida },
+      { path: "/duvida/:content", Component: Duvida },
       { path: "/contato", Component: Contato },
       { path: "/consulta", Component: SchedulingPage },
       { path: "/chat", Component: ChatPage },

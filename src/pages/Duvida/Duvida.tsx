@@ -1,8 +1,12 @@
+import { useParams } from "react-router";
+
 const Duvida = () => {
+  const { content } = useParams();
+  const contentName = decodeURIComponent(content || "");
   return (
     <section className="l-response">
       <header className="page-header">
-        <h2 className="title">Primeiro acesso ao portal do paciente</h2>
+        <h2 className="title">{contentName}</h2>
       </header>
       <ul className="l-response__content">
         <li className="c-response">
