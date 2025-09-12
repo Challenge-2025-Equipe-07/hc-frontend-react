@@ -1,347 +1,95 @@
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
+import { Breadcrumb } from "./components/Breadcrumb/Breadcrumb";
+import { TabContent, TabControls } from "./components/Tabs/Tabs";
+import { useEffect, useState } from "react";
+import type { ContentDTO, RelatedContentDTO } from "@/types/global.types";
+import { TextContent, VideoContent } from "./components/Content/Content";
+import { ArrowLeftIcon, ArrowRightIcon } from "@phosphor-icons/react";
 
 const Duvida = () => {
   const { content } = useParams();
+  const navigate = useNavigate();
   const contentName = decodeURIComponent(content || "");
+  const [selectedTab, setSelectedTab] = useState<RelatedContentDTO["type"]>();
+  const [contentResponse, setContentResponse] = useState<Array<ContentDTO>>([]);
+
+  useEffect(() => {
+    const getContent = async () => {
+      const fetchContent = await fetch("http://localhost:3000/content");
+      const parseJson: Array<ContentDTO> = await fetchContent.json();
+
+      const selectedContent = parseJson.find(
+        (singleContent) => singleContent.name === contentName,
+      );
+
+      if (!selectedContent) {
+        console.error(`Content with name "${contentName}" not found.`);
+        navigate(-1);
+        return;
+      }
+
+      const firstRelatedItem = selectedContent.related.at(0);
+
+      setSelectedTab(firstRelatedItem?.type || "text");
+      setContentResponse(parseJson);
+    };
+
+    getContent();
+  }, [content]);
+
+  const selectedContent = contentResponse.find(
+    (singleContent) => singleContent.name === contentName,
+  );
+
   return (
-    <section className="l-response">
+    <section className="grid gap-y-4 pt-12 pb-8">
       <header className="page-header">
-        <h2 className="title">{contentName}</h2>
+        <Breadcrumb currentUrl={content || ""} />
+        <h2 className="title text-gray-800">{contentName}</h2>
       </header>
-      <ul className="l-response__content">
-        <li className="c-response">
-          <menu className="c-response__header" data-js="card-tab">
-            <li>
-              <button className="c-tab c-tab--active">
-                <i className="fa fa-play-circle"></i>
-                <strong>Video</strong>
-              </button>
-            </li>
-            <li>
-              <button className="c-tab">
-                <i className="fa fa-file-text"></i>
-                <strong>Texto</strong>
-              </button>
-            </li>
-          </menu>
-          <div
-            className="c-response__tab c-response__tab--video"
-            aria-disabled="false"
-            data-js="tab"
-          >
-            <video
-              width="100%"
-              height="100%"
-              data-js="video-embed"
-              src="../assets/videos/compressed_primeiro-acesso.mp4"
-              className="c-video"
-              preload="true"
-            ></video>
-            <div className="c-response__controls">
-              <select
-                name="velocity"
-                id="velocity"
-                className="c-video__speed"
-                data-js="video-speed"
-                aria-label="Velocidade do vídeo - 1x (padrão)"
-              >
-                <option value="2">2x</option>
-                <option value="1.5">1.5x</option>
-                <option value="1" selected>
-                  1x
-                </option>
-                <option value="1">0.5x</option>
-              </select>
-              <button
-                data-js="video-controls"
-                aria-label="Iniciar vídeo"
-                className="c-button c-video__play"
-              >
-                <i className="fa fa-play"></i>
-              </button>
-              <div className="c-video__volume">
-                <button
-                  className="c-button c-button--tertiary c-video__volume-button"
-                  aria-label="Volume do vídeo"
-                  data-js="volume-button"
-                >
-                  <i className="fa fa-volume-up"></i>
-                </button>
-                <div
-                  className="c-video__volume-tooltip"
-                  data-js="volume-container"
-                >
-                  <input
-                    className="c-video__volume-slider"
-                    type="range"
-                    data-js="volume-slider"
-                    min="0"
-                    max="1"
-                    value="1"
-                    step="0.01"
-                    aria-label="Escolher volume do vídeo"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="c-video__slider">
-              <input
-                className="c-video__timeline"
-                data-js="video-timeline"
-                type="range"
-                min="0"
-                max="100"
-                value="0"
-                step="0.1"
+      <div>
+        <TabControls
+          selectedTab={selectedTab}
+          setTab={setSelectedTab}
+          relatedContent={selectedContent?.related}
+        />
+        {selectedContent?.related.map((selectedRelatedContent, index) => {
+          const tabType = selectedRelatedContent.type;
+          const tabState = tabType !== selectedTab ? "hidden" : "";
+          const component =
+            tabType === "text" ? (
+              <TextContent
+                content={selectedRelatedContent.content}
+                name={selectedRelatedContent.description}
               />
-            </div>
-          </div>
-          <div
-            className="c-response__tab c-response__tab--text"
-            aria-disabled="true"
-            data-js="tab"
-          >
-            <ol className="c-steps">
-              <li>Abra o aplicativo portal do paciente no seu celular</li>
-              <li>Na tela inicial clique em acessar portal</li>
-              <li>
-                Uma mensagem perguntará se você deseja utilizar usp.br para
-                iniciar sessão, clique em continuar
-              </li>
-              <li>
-                Na nova tela que se abrir, clique em cadastrar senha, insira o
-                CPF do paciente e clique em localizar paciente
-              </li>
-              <li>
-                Preencha os dados pessoais solicitados e crie uma senha segura,
-                com pelo menos 8 caracteres incluindo letras, números e
-                caracteres especiais
-              </li>
-              <li>Revise as informações e clique em "Cadastrar senha"</li>
-              <li>Por fim, selecione a opção acessar agora para continuar</li>
-            </ol>
-          </div>
-        </li>
-        <li className="c-response">
-          <menu className="c-response__header" data-js="card-tab">
-            <li>
-              <button className="c-tab c-tab--active">
-                <i className="fa fa-play-circle"></i>
-                <strong>Video</strong>
-              </button>
-            </li>
-            <li>
-              <button className="c-tab">
-                <i className="fa fa-file-text"></i>
-                <strong>Texto</strong>
-              </button>
-            </li>
-          </menu>
-          <div
-            className="c-response__tab c-response__tab--video"
-            aria-disabled="false"
-            data-js="tab"
-          >
-            <video
-              width="100%"
-              height="100%"
-              data-js="video-embed"
-              src="../assets/videos/compressed_teleatendimento-orientação-aos-pacientes.mp4"
-              className="c-video"
-              preload="true"
-            ></video>
-            <div className="c-response__controls">
-              <select
-                name="velocity"
-                id="velocity"
-                className="c-video__speed"
-                data-js="video-speed"
-                aria-label="Velocidade do vídeo - 1x (padrão)"
-              >
-                <option value="2">2x</option>
-                <option value="1.5">1.5x</option>
-                <option value="1" selected>
-                  1x
-                </option>
-                <option value="1">0.5x</option>
-              </select>
-              <button
-                data-js="video-controls"
-                aria-label="Iniciar vídeo"
-                className="c-button c-video__play"
-              >
-                <i className="fa fa-play"></i>
-              </button>
-              <div className="c-video__volume">
-                <button
-                  className="c-button c-button--tertiary c-video__volume-button"
-                  aria-label="Volume do vídeo"
-                  data-js="volume-button"
-                >
-                  <i className="fa fa-volume-up"></i>
-                </button>
-                <div
-                  className="c-video__volume-tooltip"
-                  data-js="volume-container"
-                >
-                  <input
-                    className="c-video__volume-slider"
-                    type="range"
-                    data-js="volume-slider"
-                    min="0"
-                    max="1"
-                    value="1"
-                    step="0.01"
-                    aria-label="Escolher volume do vídeo"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="c-video__slider">
-              <input
-                className="c-video__timeline"
-                data-js="video-timeline"
-                type="range"
-                min="0"
-                max="100"
-                value="0"
-                step="0.1"
+            ) : (
+              <VideoContent
+                name={selectedRelatedContent.description}
+                url={selectedRelatedContent.url}
               />
-            </div>
-          </div>
-          <div
-            className="c-response__tab c-response__tab--text"
-            aria-disabled="true"
-            data-js="tab"
-          >
-            <p className="body">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Praesentium eum repellendus numquam optio deserunt blanditiis
-              quisquam voluptatibus expedita repudiandae possimus aperiam,
-              facere vel non impedit quidem nemo molestiae! Quaerat, ab!
-            </p>
-          </div>
-        </li>
-        <li className="c-response">
-          <menu className="c-response__header" data-js="card-tab">
-            <li>
-              <button className="c-tab c-tab--active">
-                <i className="fa fa-play-circle"></i>
-                <strong>Video</strong>
-              </button>
-            </li>
-            <li>
-              <button className="c-tab">
-                <i className="fa fa-file-text"></i>
-                <strong>Texto</strong>
-              </button>
-            </li>
-          </menu>
-          <div
-            className="c-response__tab c-response__tab--video"
-            aria-disabled="false"
-            data-js="tab"
-          >
-            <video
-              width="100%"
-              height="100%"
-              data-js="video-embed"
-              src="../assets/videos/compressed_acesso-ao-portal.mp4"
-              className="c-video"
-              preload="true"
-            ></video>
-            <div className="c-response__controls">
-              <select
-                name="velocity"
-                id="velocity"
-                className="c-video__speed"
-                data-js="video-speed"
-                aria-label="Velocidade do vídeo - 1x (padrão)"
-              >
-                <option value="2">2x</option>
-                <option value="1.5">1.5x</option>
-                <option value="1" selected>
-                  1x
-                </option>
-                <option value="1">0.5x</option>
-              </select>
-              <button
-                data-js="video-controls"
-                aria-label="Iniciar vídeo"
-                className="c-button c-video__play"
-              >
-                <i className="fa fa-play"></i>
-              </button>
-              <div className="c-video__volume">
-                <button
-                  className="c-button c-button--tertiary c-video__volume-button"
-                  aria-label="Volume do vídeo"
-                  data-js="volume-button"
-                >
-                  <i className="fa fa-volume-up"></i>
-                </button>
-                <div
-                  className="c-video__volume-tooltip"
-                  data-js="volume-container"
-                >
-                  <input
-                    className="c-video__volume-slider"
-                    type="range"
-                    data-js="volume-slider"
-                    min="0"
-                    max="1"
-                    value="1"
-                    step="0.01"
-                    aria-label="Escolher volume do vídeo"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="c-video__slider">
-              <input
-                className="c-video__timeline"
-                data-js="video-timeline"
-                type="range"
-                min="0"
-                max="100"
-                value="0"
-                step="0.1"
-              />
-            </div>
-          </div>
-          <div
-            className="c-response__tab c-response__tab--text"
-            aria-disabled="true"
-            data-js="tab"
-          >
-            <p className="body">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Praesentium eum repellendus numquam optio deserunt blanditiis
-              quisquam voluptatibus expedita repudiandae possimus aperiam,
-              facere vel non impedit quidem nemo molestiae! Quaerat, ab!
-            </p>
-          </div>
-        </li>
-      </ul>
-      <ol className="l-response__counter" data-js="counter-dots">
-        <li className="l-response__dots l-response__dots--active"></li>
-        <li className="l-response__dots"></li>
-        <li className="l-response__dots"></li>
-      </ol>
-      <menu className="l-response__swiper">
-        <li className="l-response__swipe dim">
-          <button className="l-response__btn" data-js="prev">
+            );
+
+          return (
+            <TabContent key={index} index={index + 1} className={tabState}>
+              {component}
+            </TabContent>
+          );
+        })}
+      </div>
+      <menu className="mt-6 flex gap-x-4 text-blue-500">
+        <li className="grid basis-1/3 auto-rows-max gap-y-2 rounded-lg border border-blue-500 px-4 py-2">
+          <button className="grid justify-items-start text-left" data-js="prev">
             <strong>Passo anterior</strong>
-            <p>
-              <i className="fa fa-arrow-left"></i> Voltar
+            <p className="flex gap-x-2">
+              <ArrowLeftIcon size={24} /> Voltar
             </p>
           </button>
         </li>
-        <li className="l-response__swipe">
-          <button className="l-response__btn" data-js="next">
+        <li className="grid basis-2/3 auto-rows-max gap-y-2 rounded-lg border border-blue-500 px-4 py-2">
+          <button className="grid justify-items-end text-right" data-js="next">
             <strong>Passo seguinte</strong>
-            <p>
-              Saiba mais<i className="fa fa-arrow-right"></i>
+            <p className="flex gap-x-2">
+              Saiba mais <ArrowRightIcon size={24} />
             </p>
           </button>
         </li>

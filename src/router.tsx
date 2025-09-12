@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, redirect } from "react-router";
 import { Landing } from "@/pages/Landing/Landing";
 import { Integrantes } from "@/pages/Integrantes/Integrantes";
 import { PagesLayout } from "@/layout/PagesLayout";
@@ -21,6 +21,10 @@ const router = createBrowserRouter([
       { index: true, Component: Landing },
       { path: "/integrantes", Component: Integrantes },
       { path: "/faq", Component: Faq },
+      {
+        path: "/duvida",
+        loader: () => redirect("/"),
+      },
       { path: "/duvida/:content", Component: Duvida },
       { path: "/contato", Component: Contato },
       { path: "/consulta", Component: SchedulingPage },

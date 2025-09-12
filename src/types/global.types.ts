@@ -1,4 +1,4 @@
-type RelatedContentDTO = {
+export type RelatedContentDTO = {
   type: "video" | "text";
   url?: string;
   description: string;

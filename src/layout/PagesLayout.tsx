@@ -1,4 +1,4 @@
-import { Outlet } from "react-router";
+import { Outlet, ScrollRestoration } from "react-router";
 import { Footer, Navbar, NavbarItems } from "@/components";
 
 const PagesLayout = ({ children }: { children?: React.ReactNode }) => {
@@ -9,6 +9,7 @@ const PagesLayout = ({ children }: { children?: React.ReactNode }) => {
       </Navbar>
       <div className="pt-[72px]">{children || <Outlet />}</div>
       <Footer />
+      <ScrollRestoration />
     </main>
   );
 };
