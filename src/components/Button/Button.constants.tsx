@@ -18,7 +18,7 @@ export const ICON_STRINGS = {
 };
 
 export const BUTTON_VARIANTS = tv({
-  base: "w-fit flex gap-2 body px-3 py-2 rounded-3xl focus:ring-2 ring-blue-500 border-1 transition-colors duration-300 ease-in-out",
+  base: "w-fit flex gap-2 h-fit body px-3 py-2 rounded-3xl focus:ring-2 ring-blue-500 border-1 transition-colors duration-300 ease-in-out",
   variants: {
     color: {
       primary:

@@ -4,7 +4,15 @@ import { ICON_STRINGS, BUTTON_VARIANTS } from "./Button.constants";
 import type { ButtonProps } from "./Button.types";
 
 const Button = (props: ButtonProps) => {
-  const { asLink, variant = "primary", icon, children, to, className } = props;
+  const {
+    asLink,
+    variant = "primary",
+    icon,
+    children,
+    to,
+    className,
+    onClick,
+  } = props;
   const IconComponent = ICON_STRINGS[icon || "redirect"];
   const selectedVariant = BUTTON_VARIANTS({ color: variant });
 
@@ -17,7 +25,10 @@ const Button = (props: ButtonProps) => {
   }
 
   return (
-    <button className={`${className || " "} ${selectedVariant}`}>
+    <button
+      className={`${className || " "} ${selectedVariant}`}
+      onClick={onClick}
+    >
       {children} {icon && <IconComponent size={24} color="currentColor" />}
     </button>
   );

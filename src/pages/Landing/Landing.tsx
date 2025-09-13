@@ -1,8 +1,7 @@
 import { BrandCard } from "./components/BrandCard/BrandCard";
-import { FeatureCard } from "./components/FeatureCard/FeatureCard";
 import { SearchComponent } from "./components/Search/Search";
 import { FaqCard } from "./components/FaqCard/FaqCard";
-import { Button } from "@/components";
+import { Button, FeatureCard } from "@/components";
 import CardDisabledPerson from "@/assets/CardDisabledPerson.png";
 import CardTelephoneExample from "@/assets/CardTelephoneExample.png";
 import Carf from "@/assets/Carf.png";

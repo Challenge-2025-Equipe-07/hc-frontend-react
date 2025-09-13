@@ -7,7 +7,7 @@ const PagesLayout = ({ children }: { children?: React.ReactNode }) => {
       <Navbar>
         <NavbarItems />
       </Navbar>
-      <div className="pt-[72px]">{children || <Outlet />}</div>
+      <div className="pt-[calc(72px+24px)]">{children || <Outlet />}</div>
       <Footer />
       <ScrollRestoration />
     </main>
