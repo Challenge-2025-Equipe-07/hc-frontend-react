@@ -4,7 +4,12 @@ import type { FormValues } from "./EnvioAgendamento.types";
 import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 
 const EnvioAgendamento = () => {
-  const { register, handleSubmit, watch } = useForm<FormValues>();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<FormValues>();
   const [isCopied, copyToClipboard] = useCopyToClipboard();
   const protocol = import.meta.env.VITE_HTTPS ? "https" : "http";
 
@@ -35,7 +40,6 @@ const EnvioAgendamento = () => {
 
     const waLink = `https://api.whatsapp.com/send?${whatsappParams.toString()}`;
     window.open(waLink, "_blank");
-    console.log("Form data submitted:", waLink);
   };
 
   const handleCopy = () => {
@@ -61,44 +65,54 @@ const EnvioAgendamento = () => {
             id="phone"
             label="Whatsapp do paciente"
             {...register("phone", {
-              required: true,
-              minLength: 11,
-              maxLength: 11,
+              required: "O campo Whatsapp é obrigatório.",
+              minLength: {
+                value: 11,
+                message: "O número deve ter 11 dígitos (DDD + número).",
+              },
+              maxLength: {
+                value: 11,
+                message: "O número deve ter 11 dígitos (DDD + número).",
+              },
             })}
             placeholder="11999999999"
             autoComplete="tel"
             type="tel"
             color="light"
+            error={errors.phone?.message}
           />
           <Input
             id="date"
             label="Data da consulta"
             {...register("date", {
-              required: true,
+              required: "Por favor, selecione a data.",
             })}
             placeholder="dd/mm/aaaa"
             type="date"
             color="light"
+            error={errors.date?.message}
           />
           <Input
             id="time"
             label="Hora da consulta"
             {...register("time", {
-              required: true,
+              required: "Por favor, selecione a hora.",
             })}
             placeholder="hh:mm"
             type="time"
             color="light"
+            error={errors.time?.message}
           />
           <Input
             id="type"
             label="Tipo de consulta"
             {...register("type", {
-              required: true,
+              required: "O tipo de consulta é obrigatório.",
             })}
-            placeholder="Teleconsulta"
+            placeholder="Exemplo: pré-consulta, acolhimento, etc"
             type="text"
             color="light"
+            error={errors.type?.message}
           />
         </form>
 

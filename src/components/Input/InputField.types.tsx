@@ -8,5 +8,6 @@ export type InputFieldProps = {
   label: string;
   id: string;
   name: string;
+  error?: string;
 } & Omit<React.ComponentProps<"input">, "name"> &
   InputVariantProps;

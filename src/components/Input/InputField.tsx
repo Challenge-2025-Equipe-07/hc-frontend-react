@@ -7,9 +7,11 @@ const InputField = ({
   name,
   className,
   color = "blue",
+  error,
   ...rest
 }: InputFieldProps) => {
   const { base, wrapper, label: labelStyle } = INPUT_VARIANTS({ color });
+
   return (
     <div className={wrapper()}>
       <label htmlFor={id} className={labelStyle()}>
@@ -19,8 +21,10 @@ const InputField = ({
         id={id}
         name={name}
         className={`${base()} ${className || ""} `}
+        aria-invalid={Boolean(error)}
         {...rest}
       />
+      {error && <span className="text-red-500">{error}</span>}
     </div>
   );
 };
