@@ -1,19 +1,26 @@
-import { Button } from "@/components";
+import { Button, useNotification } from "@/components";
 import type { NotificationProps } from "./Notification.types";
 
 const NotificationWidget = (props: NotificationProps) => {
   const { date, time, appointment, children } = props;
+  const { showNotification } = useNotification();
 
   const handleSchedule = async () => {
     if (!date || !time) {
-      alert("Por favor, selecione data e hora.");
+      showNotification({
+        title: "Erro",
+        message: "Por favor, selecione data e hora.",
+      });
       return;
     }
 
     const permission = await Notification.requestPermission();
 
     if (permission !== "granted") {
-      alert("Permissão para notificações foi negada.");
+      showNotification({
+        title: "Erro",
+        message: "Permissão para notificações foi negada.",
+      });
       return;
     }
 
@@ -23,9 +30,11 @@ const NotificationWidget = (props: NotificationProps) => {
         time,
         appointment,
       });
-      alert(
-        "Lembrete agendado com sucesso! Você receberá uma notificação 30 minutos antes da sua consulta.",
-      );
+      showNotification({
+        title: "Sucesso!",
+        message:
+          "Lembrete agendado com sucesso! Você receberá uma notificação 30 minutos antes da sua consulta.",
+      });
     });
   };
 

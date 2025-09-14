@@ -2,6 +2,7 @@ import { createRoot } from "react-dom/client";
 import { RouterProvider } from "react-router";
 import router from "./router.tsx";
 import { StrictMode } from "react";
+import { NotificationProvider } from "@/components/Notification/Notification.context.tsx";
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
@@ -21,6 +22,8 @@ if ("serviceWorker" in navigator) {
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <NotificationProvider>
+      <RouterProvider router={router} />
+    </NotificationProvider>
   </StrictMode>,
 );
