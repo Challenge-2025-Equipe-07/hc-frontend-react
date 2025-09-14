@@ -8,6 +8,7 @@ import { Contato } from "@/pages/Contato/Contato";
 import { Agendamento } from "@/pages/Agendamento/Agendamento";
 import { ErrorPage } from "@/pages/Error/ErrorPage";
 import { ChatPage } from "@/pages/Chat/Chat";
+import { EnvioAgendamento } from "@/pages/EnvioAgendamento/EnvioAgendamento";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
       { path: "/contato", Component: Contato },
       { path: "/chat", Component: ChatPage },
       { path: "/agendamento", Component: Agendamento },
+      { path: "/agendar", Component: EnvioAgendamento },
     ],
   },
 ]);

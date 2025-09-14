@@ -2,25 +2,15 @@ import { useState } from "react";
 import { LinkIcon, CheckIcon } from "@phosphor-icons/react";
 import { Link } from "react-router";
 import type { BreadcrumbProps } from "./Breadcrumb.types";
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 
 const Breadcrumb = (props: BreadcrumbProps) => {
   const { currentUrl } = props;
   const decodedUrl = decodeURIComponent(currentUrl);
-  const [isCopied, setIsCopied] = useState(false);
+  const [isCopied, copyToClipboard] = useCopyToClipboard();
 
   const handleCopyLink = async () => {
-    if (isCopied) return;
-
-    try {
-      await navigator.clipboard.writeText(window.location.href);
-      setIsCopied(true);
-      setTimeout(() => setIsCopied(false), 2000);
-    } catch (err) {
-      console.error(
-        "Falha ao copiar o link para a área de transferência:",
-        err,
-      );
-    }
+    copyToClipboard(window.location.href);
   };
 
   return (

@@ -5,7 +5,7 @@ const Heading = (props: HeadingType) => {
   return (
     <header className="grid gap-x-2" {...rest}>
       <h2 className="heading text-gray-800">{title}</h2>
-      <p className="subheading text-gray-600">{subtitle}</p>
+      <p className="subtitle text-gray-600">{subtitle}</p>
     </header>
   );
 };
