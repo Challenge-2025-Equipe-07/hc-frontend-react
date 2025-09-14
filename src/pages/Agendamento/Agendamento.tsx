@@ -65,11 +65,11 @@ const Agendamento = () => {
             hour={time}
           />
         </NotificationWidget>
-        <div className="grid max-w-[370px] items-center justify-items-center gap-3 gap-y-1 rounded-2xl border border-gray-100 bg-gray-50 px-4 py-2 shadow-2xl max-lg:grid-cols-[repeat(2,max-content)] max-md:w-full lg:place-content-center lg:py-6">
+        <div className="grid max-w-[370px] items-center justify-items-center gap-3 gap-y-1 rounded-2xl border border-gray-100 bg-gray-50 px-4 py-2 shadow-2xl max-md:w-full max-md:grid-cols-[repeat(2,max-content)] md:place-content-center lg:py-6">
           <img
             src={GoogleCalendar}
             alt="Calendário da google"
-            className="max-lg:row-span-2 max-lg:size-10 lg:mb-4"
+            className="max-md:row-span-2 max-md:size-10 lg:mb-4"
           />
           <p className="text-lg text-gray-900">Usa calendário do Google?</p>
           <a
