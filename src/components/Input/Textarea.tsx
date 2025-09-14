@@ -9,6 +9,7 @@ const Textarea = ({
   className,
   maxLength = 500,
   color = "blue",
+  error,
   ...rest
 }: TextareaProps) => {
   const [charCount, setCharCount] = useState(0);
@@ -40,6 +41,7 @@ const Textarea = ({
           {charCount}/{maxLength}
         </span>
       </div>
+      {error && <span className="text-red-500">{error}</span>}
     </div>
   );
 };

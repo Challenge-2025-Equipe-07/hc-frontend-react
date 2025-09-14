@@ -5,7 +5,11 @@ import { Button, Heading, Input, Textarea } from "@/components";
 import { Address } from "./components/Address/Address";
 
 const Contato = () => {
-  const { register, handleSubmit } = useForm<FormValues>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>();
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     console.log("Form data submitted:", data);
@@ -31,33 +35,45 @@ const Contato = () => {
             id="nome"
             label="Nome"
             {...register("name", {
-              required: true,
-              minLength: 1,
+              required: "O campo Nome é obrigatório.",
+              minLength: {
+                value: 11,
+                message: "O nome deve ter no mínimo 1 letra.",
+              },
             })}
             placeholder="Nome e sobrenome"
             autoComplete="name"
             type="text"
+            error={errors.name?.message}
           />
           <Input
             id="email"
             label="Email"
             {...register("email", {
-              required: true,
-              minLength: 1,
+              required: "O campo Email é obrigatório.",
+              minLength: {
+                value: 11,
+                message: "O nome deve ter no mínimo 1 letra.",
+              },
             })}
             placeholder="Seu e-mail principal"
             required
             autoComplete="email"
             type="email"
+            error={errors.email?.message}
           />
           <Textarea
             id="message"
             label="Mensagem"
             {...register("message", {
-              maxLength: 500,
+              maxLength: {
+                value: 500,
+                message: "Sua mensagem pode ter no máximo 500 caracteres.",
+              },
             })}
             placeholder="Digite sua mensagem aqui..."
             rows={4}
+            error={errors.message?.message}
           />
           <Button className="justify-self-end">Enviar</Button>
         </form>

@@ -9,5 +9,6 @@ export type TextareaProps = {
   id: string;
   name: string;
   variant?: "blue" | "light";
+  error?: string;
 } & React.ComponentProps<"textarea"> &
   TextareaVariantProps;
