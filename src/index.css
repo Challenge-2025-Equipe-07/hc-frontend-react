@@ -17,6 +17,15 @@
     rgba(247, 191, 105, 0.3) 69.71%,
     #fff 97.12%
   );
+  --gradient-bili:
+    linear-gradient(
+      102deg,
+      rgba(231, 127, 92, 0.6) 10.2%,
+      #f36279 30.11%,
+      rgba(247, 191, 105, 0.8) 76.45%,
+      rgba(255, 255, 255, 0.5) 119.15%
+    ),
+    #f9eae5;
 }
 
 @utility grid-layout {
@@ -28,7 +37,24 @@
   }
 }
 
+@keyframes rotate-gradient {
+  from {
+    --gradient-angle: 180deg;
+  }
+  to {
+    --gradient-angle: 540deg;
+  }
+}
+
 @layer components {
+  .gradient-bili {
+    background-image: var(--gradient-bili);
+  }
+
+  .ai-orb {
+    animation: rotate-gradient 8s linear infinite;
+  }
+
   .tooltip {
     @apply absolute rounded-lg bg-gray-800 px-3 py-1.5 text-sm font-semibold text-white shadow-lg;
     @apply pointer-events-none transition-opacity duration-300 ease-in-out;

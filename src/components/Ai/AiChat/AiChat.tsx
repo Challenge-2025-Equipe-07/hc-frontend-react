@@ -1,13 +1,10 @@
 import { useState, useEffect, useRef } from "react";
+import Bili from "@/assets/Bili.svg";
 
 import type { FormEvent } from "react";
+import type { Message } from "./AiChat.types";
 
-interface Message {
-  text: string;
-  sender: "user" | "assistant";
-}
-
-const ChatPage = () => {
+const AiChat = () => {
   const [messages, setMessages] = useState<Message[]>([
     { text: "Olá! Como eu posso te ajudar?", sender: "assistant" },
   ]);
@@ -98,57 +95,51 @@ const ChatPage = () => {
   };
 
   return (
-    <div className="flex h-screen items-center justify-center bg-gray-100 font-sans">
-      <div className="flex h-full w-full max-w-2xl flex-col rounded-lg bg-white shadow-2xl md:h-[90vh]">
-        {/* Header */}
-        <div className="flex items-center rounded-t-lg bg-blue-600 p-4 text-white">
-          <h1 className="text-xl font-bold">My Watson Assistant</h1>
-        </div>
+    <aside className="grid max-w-80 items-center justify-center gap-y-4 rounded-lg bg-gray-50 p-2">
+      <header className="flex gap-x-4 rounded-2xl bg-[linear-gradient(102deg,rgba(231,127,92,0.6)_10.2%,#f36279_30.11%,rgba(247,191,105,0.8)_76.45%,rgba(255,255,255,0.5)_119.15%)] px-4 py-2 text-gray-50">
+        <img src={Bili} alt="Assistente de IA" width={29} height={32} />
+        <h1 className="subtitle">Bili</h1>
+      </header>
 
-        {/* Chat Messages */}
-        <div ref={chatMessagesRef} className="flex-1 overflow-y-auto p-6">
-          {messages.map((msg, index) => (
+      <div ref={chatMessagesRef} className="flex-1 overflow-y-auto p-6">
+        {messages.map((msg, index) => (
+          <div
+            key={index}
+            className={`mb-4 flex ${msg.sender === "user" ? "justify-end" : "items-start gap-3"}`}
+          >
             <div
-              key={index}
-              className={`mb-4 flex ${msg.sender === "user" ? "justify-end" : "items-start gap-3"}`}
+              className={`max-w-md rounded-lg p-3 ${msg.sender === "user" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-800"}`}
             >
-              <div
-                className={`max-w-md rounded-lg p-3 ${msg.sender === "user" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-800"}`}
-              >
-                <p>{msg.text}</p>
-              </div>
+              <p>{msg.text}</p>
             </div>
-          ))}
-        </div>
-
-        {/* Message Input */}
-        <div className="rounded-b-lg border-t border-gray-200 bg-gray-50 p-4">
-          <form onSubmit={handleSubmit} className="flex items-center gap-3">
-            <input
-              type="text"
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-              placeholder={
-                isSessionReady
-                  ? "Type your message..."
-                  : "Connecting to assistant..."
-              }
-              className="flex-1 rounded-lg border border-gray-300 p-3 transition focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              autoComplete="off"
-              disabled={isLoading || !isSessionReady}
-            />
-            <button
-              type="submit"
-              className="rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700 active:scale-95 disabled:bg-blue-300"
-              disabled={isLoading || !isSessionReady}
-            >
-              {isLoading ? "..." : "Send"}
-            </button>
-          </form>
-        </div>
+          </div>
+        ))}
       </div>
-    </div>
+
+      <form onSubmit={handleSubmit} className="flex items-center gap-3">
+        <input
+          type="text"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          placeholder={
+            isSessionReady
+              ? "Type your message..."
+              : "Connecting to assistant..."
+          }
+          className="flex-1 rounded-lg border border-gray-300 p-3 transition focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          autoComplete="off"
+          disabled={isLoading || !isSessionReady}
+        />
+        <button
+          type="submit"
+          className="rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700 active:scale-95 disabled:bg-blue-300"
+          disabled={isLoading || !isSessionReady}
+        >
+          {isLoading ? "..." : "Send"}
+        </button>
+      </form>
+    </aside>
   );
 };
 
-export { ChatPage };
+export { AiChat };

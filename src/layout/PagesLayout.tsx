@@ -1,5 +1,6 @@
 import { Outlet, ScrollRestoration } from "react-router";
-import { Footer, Navbar, NavbarItems } from "@/components";
+import { AiButton, Footer, Navbar, NavbarItems } from "@/components";
+import { AiChat } from "@/components/Ai/AiChat/AiChat";
 
 const PagesLayout = ({ children }: { children?: React.ReactNode }) => {
   return (
@@ -10,6 +11,10 @@ const PagesLayout = ({ children }: { children?: React.ReactNode }) => {
       <div className="pt-[calc(72px+24px)]">{children || <Outlet />}</div>
       <Footer />
       <ScrollRestoration />
+      <div className="fixed right-8 bottom-6 z-10 grid">
+        <AiChat />
+        <AiButton onClick={() => console.log("click")} />
+      </div>
     </main>
   );
 };
