@@ -9,7 +9,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "api": "json-server content.json --port 3000"
+    "api": "concurrently \"json-server content.json --port 3000\" \"node hc-chat-server/server.js\""
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
@@ -28,6 +28,7 @@
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react": "^5.0.0",
+    "concurrently": "^9.2.1",
     "cross-env": "^10.0.0",
     "eslint": "^9.33.0",
     "eslint-plugin-react-hooks": "^5.2.0",
