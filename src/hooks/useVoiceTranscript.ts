@@ -1,7 +1,10 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import type { CustomSpeechRecognition } from "./useVoiceTranscript.types";
+import type {
+  CustomSpeechRecognition,
+  VoiceTranscriptOptions,
+} from "./useVoiceTranscript.types";
 
-export const useVoiceTranscript = () => {
+export const useVoiceTranscript = (options: VoiceTranscriptOptions = {}) => {
   const [transcript, setTranscript] = useState("");
   const [isListening, setIsListening] = useState(false);
 
@@ -30,6 +33,9 @@ export const useVoiceTranscript = () => {
 
     recognition.onend = () => {
       setIsListening(false);
+      options?.onTranscriptionEnd
+        ? options?.onTranscriptionEnd(transcript)
+        : null;
     };
 
     recognition.onerror = (event) => {

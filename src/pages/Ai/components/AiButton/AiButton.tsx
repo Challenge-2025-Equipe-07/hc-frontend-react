@@ -1,10 +1,14 @@
 import type { AiButtonProps } from "./AiButton.types";
 
 const AiButton = ({ onClick }: AiButtonProps) => {
+  const handleClick = () => {
+    onClick();
+  };
+
   return (
     <div className="grid w-fit gap-y-2 justify-self-end">
       <button
-        onClick={onClick}
+        onClick={handleClick}
         className="flex w-fit flex-col items-end gap-4 overflow-clip rounded-full bg-gray-50 shadow-2xl"
         aria-label="Pedir ajuda da IA"
       >
@@ -71,7 +75,7 @@ const AiButton = ({ onClick }: AiButtonProps) => {
         </svg>
 
         <div
-          className="ai-orb relative z-10 h-[5.25rem] w-[5.25rem] rounded-full"
+          className="animate-orb relative z-10 h-[5.25rem] w-[5.25rem] rounded-full"
           style={{
             filter: "blur(8.625px)",
             background:

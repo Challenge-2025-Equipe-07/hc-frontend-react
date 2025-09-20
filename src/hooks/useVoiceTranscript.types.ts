@@ -3,7 +3,10 @@ export interface CustomSpeechRecognition extends SpeechRecognition {
   lang: string;
   interimResults: boolean;
   onstart: () => void;
-  onend: () => void;
   onerror: (event: SpeechRecognitionErrorEvent) => void;
   onresult: (event: SpeechRecognitionEvent) => void;
 }
+
+export type VoiceTranscriptOptions = {
+  onTranscriptionEnd?: (transcript: string) => void;
+};

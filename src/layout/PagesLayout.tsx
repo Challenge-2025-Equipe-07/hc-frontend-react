@@ -1,8 +1,11 @@
 import { Outlet, ScrollRestoration } from "react-router";
 import { AiButton, Footer, Navbar, NavbarItems } from "@/components";
-import { AiChat } from "@/components/Ai/AiChat/AiChat";
+import { AiChat } from "@/pages/Ai/AiChat";
+import { useState } from "react";
 
 const PagesLayout = ({ children }: { children?: React.ReactNode }) => {
+  const [aiOpen, setAiOpen] = useState(false);
+
   return (
     <main className="grid-layout grid min-h-svh auto-rows-[max-content_1fr_max-content] p-4">
       <Navbar>
@@ -11,9 +14,9 @@ const PagesLayout = ({ children }: { children?: React.ReactNode }) => {
       <div className="pt-[calc(72px+24px)]">{children || <Outlet />}</div>
       <Footer />
       <ScrollRestoration />
-      <div className="fixed right-8 bottom-6 z-10 grid">
-        <AiChat />
-        <AiButton onClick={() => console.log("click")} />
+      <div className="fixed right-8 bottom-6 z-10 grid gap-y-2">
+        {aiOpen && <AiChat />}
+        <AiButton onClick={() => setAiOpen((prev) => !prev)} />
       </div>
     </main>
   );

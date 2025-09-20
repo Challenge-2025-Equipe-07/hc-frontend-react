@@ -26,6 +26,29 @@
       rgba(255, 255, 255, 0.5) 119.15%
     ),
     #f9eae5;
+
+  --animate-appear: slide-up 300ms ease-in-out forwards;
+  --animate-orb: rotate-gradient 8s linear infinite;
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes rotate-gradient {
+    from {
+      --gradient-angle: 180deg;
+    }
+    to {
+      --gradient-angle: 540deg;
+    }
+  }
 }
 
 @utility grid-layout {
@@ -34,15 +57,6 @@
     1fr;
   & > * {
     grid-column: 2;
-  }
-}
-
-@keyframes rotate-gradient {
-  from {
-    --gradient-angle: 180deg;
-  }
-  to {
-    --gradient-angle: 540deg;
   }
 }
 
