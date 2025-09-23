@@ -37,6 +37,7 @@ const NavbarItems = () => {
           aria-labelledby="menuButton"
         >
           <NavbarItem to="/">Início</NavbarItem>
+          <NavbarItem to="/sobre">Sobre</NavbarItem>
           <NavbarItem to="/faq">FAQ</NavbarItem>
           <NavbarItem to="/integrantes">Integrantes</NavbarItem>
           <NavbarItem to="/contato">Contato</NavbarItem>
@@ -50,3 +51,4 @@ const NavbarItems = () => {
 };
 
 export { NavbarItems };
+ 
