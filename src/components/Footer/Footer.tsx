@@ -21,6 +21,9 @@ const Footer = () => {
             <LinkItem route="/">Início</LinkItem>
           </li>
           <li>
+            <LinkItem route="/sobre">Sobre</LinkItem>
+          </li>
+          <li>
             <LinkItem route="/faq">FAQ</LinkItem>
           </li>
           <li>
@@ -73,3 +76,4 @@ const Footer = () => {
 };
 
 export { Footer };
+ 
