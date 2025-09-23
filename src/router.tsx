@@ -9,6 +9,7 @@ import { Agendamento } from "@/pages/Agendamento/Agendamento";
 import { ErrorPage } from "@/pages/Error/ErrorPage";
 import { EnvioAgendamento } from "@/pages/EnvioAgendamento/EnvioAgendamento";
 import { Sobre } from "@/pages/Sobre/Sobre";
+import { Login } from "@/pages/Login/Login";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
       { path: "/contato", Component: Contato },
       { path: "/agendamento", Component: Agendamento },
       { path: "/agendar", Component: EnvioAgendamento },
+      { path: "/login", Component: Login },
     ],
   },
 ]);
