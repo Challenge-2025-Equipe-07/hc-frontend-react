@@ -1,5 +1,6 @@
-import { Button, useNotification } from "@/components";
+import { Button } from "@/components";
 import type { NotificationProps } from "./Notification.types";
+import { useNotification } from "@/hooks/useNotification";
 
 const NotificationWidget = (props: NotificationProps) => {
   const { date, time, appointment, children } = props;

@@ -7,5 +7,4 @@ export { Button } from "./Button/Button";
 export { InputField as Input } from "./Input/InputField";
 export { Textarea } from "./Input/Textarea";
 export { FeatureCard } from "./FeatureCard/FeatureCard";
-export { useNotification } from "./Notification/Notification.context";
 export { AiButton } from "../pages/Ai/components/AiButton/AiButton";

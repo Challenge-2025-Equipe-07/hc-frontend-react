@@ -1,7 +1,6 @@
 import {
   createContext,
   useState,
-  useContext,
   useCallback,
   useRef,
   useEffect,
@@ -13,9 +12,9 @@ import type {
 } from "./Notification.types";
 import { Notification } from "./Notification";
 
-const NotificationContext = createContext<NotificationContextType | undefined>(
-  undefined,
-);
+export const NotificationContext = createContext<
+  NotificationContextType | undefined
+>(undefined);
 
 export const NotificationProvider = ({ children }: { children: ReactNode }) => {
   const [notification, setNotification] = useState<NotificationData | null>(
@@ -58,14 +57,4 @@ export const NotificationProvider = ({ children }: { children: ReactNode }) => {
       <Notification notification={notification} onDismiss={hideNotification} />
     </NotificationContext.Provider>
   );
-};
-
-export const useNotification = () => {
-  const context = useContext(NotificationContext);
-  if (context === undefined) {
-    throw new Error(
-      "useNotification must be used within a NotificationProvider",
-    );
-  }
-  return context;
 };

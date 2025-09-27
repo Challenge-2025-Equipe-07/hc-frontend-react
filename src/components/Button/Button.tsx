@@ -20,11 +20,8 @@ const Button = (props: ButtonProps) => {
   }
 
   const {
-    asLink,
-    variant = "primary",
     icon,
     children,
-    to,
     className,
     onClick,
     ...rest
