@@ -73,6 +73,9 @@ npm run dev:https
 
 Após isso, abra seu navegador e acesse o endereço `https://localhost:5173` (ou a porta que for indicada no seu terminal).
 
+> ⚠️ **Atenção:** Para testar as notificações e o chatbot, é necessário utilizar HTTPS. O certificado foi gerado localmente e pode não funcionar no seu computador. Se for o caso, essa entrega faz parte da Sprint 4 e será resolvida no deploy à Vercel.
+
+
 ## Nomes dos integrantes
 
 - Camilo Micheletto
@@ -135,7 +138,7 @@ https://github.com/Challenge-2025-Equipe-07/hc-frontend-react
 
 ## Link publicado (Vercel)
 
-(Sem backend conectado)
+⚠️ (Sem backend conectado)
 https://hc-frontend-react.vercel.app/
 
 ## Link do vídeo do YouTube
