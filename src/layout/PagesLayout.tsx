@@ -15,7 +15,7 @@ const PagesLayout = ({ children }: { children?: React.ReactNode }) => {
       <Footer />
       <ScrollRestoration />
       <div className="fixed right-8 bottom-6 z-60 grid gap-y-2">
-        {aiOpen && <AiChat />}
+        <AiChat isOpen={aiOpen} />
         <AiButton onClick={() => setAiOpen((prev) => !prev)} />
       </div>
     </main>

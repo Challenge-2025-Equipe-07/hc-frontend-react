@@ -8,7 +8,7 @@ const AiConversation = forwardRef<HTMLDivElement, AiConversationProps>(
     return (
       <div
         ref={ref}
-        className="grid h-full flex-1 auto-rows-max gap-y-4 overflow-y-auto p-6"
+        className="grid h-full max-h-100 flex-1 auto-rows-max gap-y-4 overflow-y-auto p-6"
       >
         {messages.map((msg, index) => {
           const { wrapper, message } = MESSAGE_VARIANTS({ theme: msg.sender });
