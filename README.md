@@ -116,5 +116,6 @@ WATSON_ASSISTANT_ID=cf062b12-48b7-44c8-903d-031a15b42851
 ```
 
 ## Link do GitHub
-
+https://github.com/Challenge-2025-Equipe-07/hc-frontend-react
 ## Link do vídeo do YouTube
+https://youtu.be/ZVOTUHtpnXM
