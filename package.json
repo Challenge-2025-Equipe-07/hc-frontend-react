@@ -7,13 +7,13 @@
     "node": ">=22.18.0"
   },
   "scripts": {
+    "postinstall": "cd hc-chat-server && npm install",
     "dev": "vite",
     "dev:https": "cross-env VITE_HTTPS=true vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "api": "concurrently \"json-server content.json --port 3000\" \"node hc-chat-server/server.js\"",
-    "postinstall": "node ./generate-cert.js"
+    "api": "concurrently \"json-server content.json --port 3000\" \"node hc-chat-server/server.js\""
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
