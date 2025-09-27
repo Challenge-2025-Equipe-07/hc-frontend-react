@@ -5,7 +5,7 @@ import type { VariantProps } from "tailwind-variants/lite";
 type InputVariantProps = VariantProps<typeof INPUT_VARIANTS>;
 
 export type InputFieldProps = {
-  label: string;
+  label?: string;
   id: string;
   name: string;
   error?: string;

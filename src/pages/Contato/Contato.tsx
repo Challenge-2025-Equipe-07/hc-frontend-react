@@ -9,8 +9,9 @@ const Contato = () => {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm<FormValues>();
-
+  const charCount = watch("message")?.length;
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     console.log("Form data submitted:", data);
   };
@@ -37,7 +38,7 @@ const Contato = () => {
             {...register("name", {
               required: "O campo Nome é obrigatório.",
               minLength: {
-                value: 11,
+                value: 1,
                 message: "O nome deve ter no mínimo 1 letra.",
               },
             })}
@@ -73,6 +74,7 @@ const Contato = () => {
             })}
             placeholder="Digite sua mensagem aqui..."
             rows={4}
+            charCount={charCount}
             error={errors.message?.message}
           />
           <Button className="justify-self-end">Enviar</Button>

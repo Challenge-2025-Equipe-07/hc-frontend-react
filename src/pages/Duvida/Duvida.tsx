@@ -12,11 +12,11 @@ const Duvida = () => {
   const contentName = decodeURIComponent(content || "");
   const [selectedTab, setSelectedTab] = useState<RelatedContentDTO["type"]>();
   const [contentResponse, setContentResponse] = useState<Array<ContentDTO>>([]);
-
+  const ENDPOINT = import.meta.env.VITE_JSON_ENDPOINT;
   useEffect(() => {
     const getContent = async () => {
       try {
-        const fetchContent = await fetch("http://localhost:3000/content");
+        const fetchContent = await fetch(ENDPOINT);
         const parseJson: Array<ContentDTO> = await fetchContent.json();
 
         const selectedContent = parseJson.find(

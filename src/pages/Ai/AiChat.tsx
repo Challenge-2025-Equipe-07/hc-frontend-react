@@ -68,7 +68,7 @@ const AiChat = () => {
   };
 
   return (
-    <aside className="animate-appear grid min-h-150 max-w-80 auto-rows-[max-content_1fr_max-content] items-center justify-center gap-y-4 rounded-lg bg-gray-50 p-2 shadow-2xl">
+    <aside className="animate-appear grid min-h-135 lg:min-h-110 max-w-80 auto-rows-[max-content_1fr_max-content] items-center justify-center gap-y-4 rounded-lg bg-gray-50 p-2 shadow-2xl">
       <header className="flex gap-x-4 rounded-2xl bg-[linear-gradient(102deg,rgba(231,127,92,0.6)_10.2%,#f36279_30.11%,rgba(247,191,105,0.8)_76.45%,rgba(255,255,255,0.5)_119.15%)] px-4 py-2 text-gray-50">
         <img src={Bili} alt="Assistente de IA" width={29} height={32} />
         <h2 className="subtitle">Bili</h2>

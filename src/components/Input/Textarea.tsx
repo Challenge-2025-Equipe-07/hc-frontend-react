@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { INPUT_VARIANTS } from "./Input.contants";
 import type { TextareaProps } from "./Textarea.types";
 
@@ -10,18 +9,12 @@ const Textarea = ({
   maxLength = 500,
   color = "blue",
   error,
+  charCount,
   ...rest
 }: TextareaProps) => {
-  const [charCount, setCharCount] = useState(0);
-
-  const { onChange } = rest;
-
   const { base, wrapper, label: labelStyle } = INPUT_VARIANTS({ color });
 
-  const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    if (onChange) onChange(e);
-    setCharCount(e.target.value.length);
-  };
+  const isValidChar = !isNaN(charCount || 0);
 
   return (
     <div className={wrapper()}>
@@ -34,12 +27,13 @@ const Textarea = ({
           name={name}
           maxLength={maxLength}
           className={`${base()} ${className || ""} `}
-          onChange={handleTextareaChange}
           {...rest}
         />
-        <span className="absolute right-3 bottom-2 text-sm text-gray-800">
-          {charCount}/{maxLength}
-        </span>
+        {isValidChar && (
+          <span className="absolute right-3 bottom-2 text-sm text-gray-800">
+            {charCount}/{maxLength}
+          </span>
+        )}
       </div>
       {error && <span className="text-red-500">{error}</span>}
     </div>

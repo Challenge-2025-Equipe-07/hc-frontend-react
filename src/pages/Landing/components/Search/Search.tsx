@@ -1,8 +1,10 @@
 import { Button } from "@/components/Button/Button";
 import { useVoiceTranscript } from "@/hooks/useVoiceTranscript";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useForm, type SubmitHandler } from "react-hook-form";
+import type { SearchForm, SearchComponentProps } from "./Search.types";
 
-const SearchComponent = () => {
+const SearchComponent = ({ onSearch }: SearchComponentProps) => {
   const {
     transcript,
     isListening,
@@ -10,11 +12,18 @@ const SearchComponent = () => {
     stopListening,
     isSupported,
   } = useVoiceTranscript();
-  const [searchTerm, setSearchTerm] = useState("");
+  const { register, handleSubmit, setValue, watch } = useForm<SearchForm>();
+  const searchValue = watch("search");
 
   useEffect(() => {
-    setSearchTerm(transcript);
-  }, [transcript]);
+    setValue("search", transcript);
+  }, [transcript, setValue]);
+
+  useEffect(() => {
+    if (searchValue === "") {
+      onSearch({ search: "" });
+    }
+  }, [searchValue, onSearch]);
 
   const handleListen = () => {
     if (isListening) {
@@ -24,8 +33,8 @@ const SearchComponent = () => {
     }
   };
 
-  const handleSearchSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const onSubmit: SubmitHandler<SearchForm> = (data) => {
+    onSearch(data);
   };
 
   const iconToShow = () => {
@@ -38,15 +47,14 @@ const SearchComponent = () => {
     <>
       <form
         className="flex w-full max-w-124 items-center gap-2 rounded-4xl border-1 border-gray-200 bg-white px-4 py-2 shadow-2xl transition-shadow focus-within:ring-1 focus-within:ring-blue-500"
-        onSubmit={handleSearchSubmit}
+        onSubmit={handleSubmit(onSubmit)}
       >
         <input
           type="search"
           placeholder="Como criar meu RG do HC?"
           aria-label="Busque sobre sua dúvida"
-          value={searchTerm}
           id="search-form"
-          onChange={(e) => setSearchTerm(e.target.value)}
+          {...register("search")}
           className="body flex-2 py-2 transition outline-none"
         />
         <Button
