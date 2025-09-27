@@ -1,11 +1,29 @@
 # Reabili
 
 ## Tecnologias utilizadas
+
 ## Como executar o projeto
 ### Testando as features
 ### Variáveis de ambiente
 ## Nomes dos integrantes
 ## Imagens e ícones relacionados ao projeto
+
+- Bili.svg
+- CardDisabledPerson.png
+- CardTelephoneExample.png
+- Carf.png
+- Chrome.svg
+- ExemploVideoChamada1.png
+- ExemploVideoChamada2.png
+- GoogleCalendar.svg
+- LogoHcFmusp.svg
+- LogomarcaColor.svg
+- LogomarcaWhite.svg
+- TeamCamiloMicheletto.jpeg
+- TeamCarlosSilva.jpeg
+- TeamGuilhermeRibeiro.jpeg
+- IMREA.svg
+
 ## Estrutura de pastas do projeto
 
 ```bash
