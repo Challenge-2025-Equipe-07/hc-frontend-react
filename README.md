@@ -6,8 +6,37 @@
 
 ## Como executar o projeto
 
+1. **Instale as dependências:**
+
+   ```bash
+   npm install
+   ```
+
+2. **Inicie os serviços de backend (API e chat):**
+   Em um terminal, execute o seguinte comando para iniciar o servidor de conteúdo e o servidor do chat simultaneamente.
+
+   ```bash
+   npm run api
+   ```
+
+3. **Inicie o servidor de desenvolvimento do frontend:**
+   Em **outro** terminal, execute o seguinte comando:
+
+   ```bash
+   npm run dev
+   ```
+
+   Após isso, abra seu navegador e acesse o endereço `http://localhost:5173` (ou a porta que for indicada no seu terminal).
+
 ### Testando as features
 
+Para testar as notificações e o chatbot precisa de uma comunicação segura, via HTTPS. Para isso usamos certificados gerados localmente e adicionamos na opção `server` do Vite. Para rodar a aplicação via https, use:
+
+```bash
+npm run dev:https
+```
+
+Após isso, abra seu navegador e acesse o endereço `https://localhost:5173` (ou a porta que for indicada no seu terminal).
 
 ### Variáveis de ambiente
 
