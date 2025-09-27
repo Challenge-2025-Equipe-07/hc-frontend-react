@@ -2,7 +2,16 @@
 
 ## Tecnologias utilizadas
 
+- React
+- Vite
+- TypeScript
+- Tailwind CSS
+- ESLint
+- Prettier
+- React Router
+- React Hook Form
 
+_Observação: Para os ícones, estamos utilizando a biblioteca Phosphor Icons._
 
 ## Como executar o projeto
 
