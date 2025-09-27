@@ -69,7 +69,7 @@ const SearchComponent = ({ onSearch }: SearchComponentProps) => {
       <p className="mt-4 text-sm text-gray-500">
         {isListening
           ? "Fale agora. A gravação parará automaticamente."
-          : "Clique em 'Gravar' para buscar por voz."}
+          : "Clique no microfone para buscar por voz."}
       </p>
     </>
   );

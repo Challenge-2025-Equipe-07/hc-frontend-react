@@ -13,6 +13,18 @@
 
 _Observação: Para os ícones, estamos utilizando a biblioteca Phosphor Icons._
 
+## Variáveis de ambiente
+
+Para rodar o chatbot e o servidor de teste (json-server), são necessárias as seguintes variáveis de ambiente:
+
+```.env
+VITE_SERVER_URL=http://localhost:3001
+VITE_JSON_ENDPOINT=http://localhost:3000/content
+WATSON_ASSISTANT_APIKEY=QGmn6ql_GeiwS2GIVATF39sZL9E45GZR5Bn-wOnYxPBM
+WATSON_ASSISTANT_URL=https://api.au-syd.assistant.watson.cloud.ibm.com/instances/0f3c70d7-86ee-446e-b0ef-406d247cc4d3
+WATSON_ASSISTANT_ID=cf062b12-48b7-44c8-903d-031a15b42851
+```
+
 ## Como executar o projeto
 
 1. **Instale as dependências:**
@@ -46,18 +58,6 @@ npm run dev:https
 ```
 
 Após isso, abra seu navegador e acesse o endereço `https://localhost:5173` (ou a porta que for indicada no seu terminal).
-
-### Variáveis de ambiente
-
-Para rodar o chatbot, é necessário as seguintes variáveis:
-
-```.env
-VITE_SERVER_URL=http://localhost:3001
-WATSON_ASSISTANT_APIKEY=QGmn6ql_GeiwS2GIVATF39sZL9E45GZR5Bn-wOnYxPBM
-WATSON_ASSISTANT_URL=https://api.au-syd.assistant.watson.cloud.ibm.com/instances/0f3c70d7-86ee-446e-b0ef-406d247cc4d3
-WATSON_ASSISTANT_ID=cf062b12-48b7-44c8-903d-031a15b42851
-
-```
 
 ## Nomes dos integrantes
 
@@ -116,11 +116,14 @@ WATSON_ASSISTANT_ID=cf062b12-48b7-44c8-903d-031a15b42851
 ```
 
 ## Link do GitHub
+
 https://github.com/Challenge-2025-Equipe-07/hc-frontend-react
 
 ## Link publicado (Vercel)
+
 (Sem backend conectado)
 https://hc-frontend-react.vercel.app/
 
 ## Link do vídeo do YouTube
+
 https://youtu.be/ZVOTUHtpnXM

@@ -138,13 +138,13 @@
     font-size: theme("fontSize.2xl");
     font-weight: theme("fontWeight.light");
     line-height: theme("lineHeight.normal");
-  }
+  }`
 
   .body {
     font-family: var(--font-main);
     font-size: theme("fontSize.base");
     font-weight: theme("fontWeight.normal");
-    line-height: 1.4;
+    line-height: 1.5;
   }
 
   .small {

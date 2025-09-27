@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "postinstall": "cd hc-chat-server && npm install",
     "dev": "vite",
     "dev:https": "cross-env VITE_HTTPS=true vite",
     "build": "tsc -b && vite build",
