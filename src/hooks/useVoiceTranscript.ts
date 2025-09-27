@@ -60,6 +60,8 @@ export const useVoiceTranscript = (options: VoiceTranscriptOptions = {}) => {
   }, [options, transcript]);
 
   const startListening = useCallback(() => {
+    console.log("O microfone está captando audio", { isListening });
+
     if (recognitionRef.current && !isListening) {
       recognitionRef.current.start();
     }
