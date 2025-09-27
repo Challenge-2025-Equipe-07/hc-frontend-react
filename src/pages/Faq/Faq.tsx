@@ -10,7 +10,7 @@ const Faq = () => {
         title="FAQ"
         subtitle="Perguntas feitas frequentemente pelos usuários"
       />
-      <div className="my-8 grid grid-cols-2 gap-4">
+      <div className="my-8 grid grid-cols-1 gap-4 lg:grid-cols-2">
         {hasItems &&
           FAQ_ITEMS.map(({ title, content }) => {
             return <Accordion title={title} content={content} />;

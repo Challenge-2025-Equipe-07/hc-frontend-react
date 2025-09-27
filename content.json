@@ -18,6 +18,23 @@
       ]
     },
     {
+      "name": "Manual da teleconsulta",
+      "related": [
+        {
+          "type": "video",
+          "url": "https://www.youtube.com/embed/rT9U8HlXaRw?si=yqMUThH0ZnA55wKV",
+          "description": "Como fazer uma boa teleconsulta",
+          "content": ""
+        },
+        {
+          "type": "text",
+          "url": "",
+          "description": "Como fazer uma boa teleconsulta",
+          "content": "1. Abra o app do hospital no celular. 2. Clique em 'Iniciar Teleconsulta'. 3. Siga as instruções na tela para conectar com o médico. 4. Se precisar de ajuda, peça a um familiar ou cuidador. 5. Tenha seus documentos e exames à mão. 6. Fique em um local tranquilo e com boa iluminação."
+        }
+      ]
+    },
+    {
       "name": "Como funciona a pré consulta",
       "related": [
         {

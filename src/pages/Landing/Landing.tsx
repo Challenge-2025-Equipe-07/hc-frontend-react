@@ -82,6 +82,7 @@ const Landing = () => {
           description="Como funcionam nossos serviços de psicologia e assistência social"
           actionLabel="Saber mais"
           theme="warm"
+          link={encodeURIComponent("Como funciona a pré consulta")}
         />
         <FeatureCard
           img={CardTelephoneExample}
@@ -89,6 +90,7 @@ const Landing = () => {
           description="Cuidar da sua saúde no conforto da sua casa é mais simples do que você imagina"
           actionLabel="Saber mais"
           theme="cold"
+          link={encodeURIComponent("Manual da teleconsulta")}
         />
       </div>
 
@@ -115,7 +117,11 @@ const Landing = () => {
               Não fique na espera à toa, a teleconsulta pode ser até 4x mais
               rápida do que uma consulta presencial.
             </p>
-            <Button asLink to={"/"} icon="question">
+            <Button
+              asLink
+              to={`/duvida/${encodeURIComponent("Manual da teleconsulta")}`}
+              icon="question"
+            >
               Saiba mais
             </Button>
           </div>

@@ -6,4 +6,5 @@ export type FeatureCardProps = {
   description: string;
   img: string;
   actionLabel: string;
+  link: string;
 };
