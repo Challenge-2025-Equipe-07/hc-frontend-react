@@ -1,5 +1,16 @@
 # Reabili
 
+## Índice
+
+- [Tecnologias utilizadas](#tecnologias-utilizadas)
+- [Como testar](#como-testar)
+- [Nomes dos integrantes](#nomes-dos-integrantes)
+- [Imagens e ícones relacionados ao projeto](#imagens-e-ícones-relacionados-ao-projeto)
+- [Estrutura de pastas do projeto](#estrutura-de-pastas-do-projeto)
+- [Link do GitHub](#link-do-github)
+- [Link publicado (Vercel)](#link-publicado-vercel)
+- [Link do vídeo do YouTube](#link-do-vídeo-do-youtube)
+
 ## Tecnologias utilizadas
 
 - React
@@ -10,10 +21,13 @@
 - Prettier
 - React Router
 - React Hook Form
+- Node v22.18.0
 
 _Observação: Para os ícones, estamos utilizando a biblioteca Phosphor Icons._
 
-## Variáveis de ambiente
+## Como testar
+
+### Adicione as variáveis de ambiente
 
 Para rodar o chatbot e o servidor de teste (json-server), são necessárias as seguintes variáveis de ambiente:
 
@@ -25,7 +39,7 @@ WATSON_ASSISTANT_URL=https://api.au-syd.assistant.watson.cloud.ibm.com/instances
 WATSON_ASSISTANT_ID=cf062b12-48b7-44c8-903d-031a15b42851
 ```
 
-## Como executar o projeto
+### Instalação
 
 1. **Instale as dependências:**
 
@@ -51,7 +65,7 @@ WATSON_ASSISTANT_ID=cf062b12-48b7-44c8-903d-031a15b42851
 
 ### Testando as features
 
-Para testar as notificações e o chatbot precisa de uma comunicação segura, via HTTPS. Para isso usamos certificados gerados localmente e adicionamos na opção `server` do Vite. Para rodar a aplicação via https, use:
+> Para testar as notificações e o chatbot precisa de uma comunicação segura, via HTTPS. Para isso usamos certificados gerados localmente e adicionamos na opção `server` do Vite. Para rodar a aplicação via https, use:
 
 ```bash
 npm run dev:https
