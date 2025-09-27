@@ -33,9 +33,9 @@ export const useVoiceTranscript = (options: VoiceTranscriptOptions = {}) => {
 
     recognition.onend = () => {
       setIsListening(false);
-      options?.onTranscriptionEnd
-        ? options?.onTranscriptionEnd(transcript)
-        : null;
+      if (options?.onTranscriptionEnd) {
+        options.onTranscriptionEnd(transcript);
+      }
     };
 
     recognition.onerror = (event) => {
@@ -57,7 +57,7 @@ export const useVoiceTranscript = (options: VoiceTranscriptOptions = {}) => {
     return () => {
       recognition.stop();
     };
-  }, []);
+  }, [options, transcript]);
 
   const startListening = useCallback(() => {
     if (recognitionRef.current && !isListening) {

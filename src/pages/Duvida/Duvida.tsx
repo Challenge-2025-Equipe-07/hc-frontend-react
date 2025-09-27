@@ -39,7 +39,7 @@ const Duvida = () => {
     };
 
     getContent();
-  }, [content, navigate]);
+  }, [content, navigate, contentName]);
 
   const currentIndex = contentResponse.findIndex(
     (item) => item.name === contentName,

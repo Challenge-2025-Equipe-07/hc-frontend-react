@@ -8,3 +8,5 @@ export { InputField as Input } from "./Input/InputField";
 export { Textarea } from "./Input/Textarea";
 export { FeatureCard } from "./FeatureCard/FeatureCard";
 export { AiButton } from "../pages/Ai/components/AiButton/AiButton";
+export { NotificationProvider } from "./Notification/Notification.provider";
+export { NotificationContext } from "./Notification/Notification.context";
