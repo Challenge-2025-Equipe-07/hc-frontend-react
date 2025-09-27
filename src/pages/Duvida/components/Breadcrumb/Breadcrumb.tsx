@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { LinkIcon, CheckIcon } from "@phosphor-icons/react";
 import { Link } from "react-router";
 import type { BreadcrumbProps } from "./Breadcrumb.types";

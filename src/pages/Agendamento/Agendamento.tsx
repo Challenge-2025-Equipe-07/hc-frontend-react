@@ -21,7 +21,7 @@ const formatToUTC = (date: Date) => {
 };
 
 const Agendamento = () => {
-  let [searchParams, _] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
   const startDate = new Date(searchParams.get("date") ?? getLocalDateTime());
   const date = dateFormatter.format(startDate);

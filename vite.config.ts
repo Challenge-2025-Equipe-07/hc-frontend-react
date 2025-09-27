@@ -16,6 +16,7 @@ export default defineConfig(() => {
     } catch (error) {
       console.warn(
         "⚠️  HTTPS certificate files not found. Falling back to HTTP.",
+        error,
       );
     }
   }
