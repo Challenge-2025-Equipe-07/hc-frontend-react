@@ -52,6 +52,7 @@ export const Login = () => {
           type="password"
           color="light"
           placeholder="Sua senha"
+          autoComplete="current-password"
           error={errors.password?.message}
         />
         <Button className="justify-self-end" type="submit">
@@ -61,4 +62,3 @@ export const Login = () => {
     </section>
   );
 };
- 
