@@ -78,9 +78,11 @@ Após isso, abra seu navegador e acesse o endereço `https://localhost:5173` (ou
 
 ## Nomes dos integrantes
 
-- Camilo Micheletto
-- Carlos Silva
-- Guilherme Ribeiro
+| Nome | RM |
+| --- | --- |
+| Camilo Micheletto | 564113 |
+| Carlos Silva | 564968 |
+| Guilherme Ribeiro | 562700 |
 
 ## Imagens e ícones relacionados ao projeto
 
