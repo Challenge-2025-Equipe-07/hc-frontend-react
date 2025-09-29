@@ -14,7 +14,7 @@ const AiConversation = forwardRef<HTMLDivElement, AiConversationProps>(
           const { wrapper, message } = MESSAGE_VARIANTS({ theme: msg.sender });
           const isAssiatant = msg.sender === "assistant";
           return (
-            <div className={wrapper()}>
+            <div className={wrapper()} key={index}>
               {isAssiatant && (
                 <img
                   src={IMREAColor}
