@@ -23,7 +23,9 @@
 - React Hook Form
 - Node v22.18.0
 
-_Observação: Para os ícones, estamos utilizando a biblioteca Phosphor Icons._
+### Observações
+
+Como a conexão com o banco fica pra Sprint 4, temos de servidor local o `json-server` e uma API local para conectar com watson em `<root>/hc-chat-server`. Para agendar notificações temos um service worker na pasta `/dist`. Para fazer a instalação do service worker sem plugin (diretamente pela API do browser), optamos por manter esse arquivo não processado (Javascript puro).
 
 ## Como testar
 
