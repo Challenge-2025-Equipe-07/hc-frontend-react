@@ -29,7 +29,7 @@ _Observação: Para os ícones, estamos utilizando a biblioteca Phosphor Icons._
 
 ### Adicione as variáveis de ambiente
 
-Para rodar o chatbot e o servidor de teste (json-server), são necessárias as seguintes variáveis de ambiente:
+Para rodar o chatbot e o servidor de teste (json-server), é necessário criar um `.env` com as seguintes variáveis de ambiente:
 
 ```.env
 VITE_SERVER_URL=http://localhost:3001
