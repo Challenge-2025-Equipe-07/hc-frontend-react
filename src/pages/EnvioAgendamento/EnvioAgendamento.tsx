@@ -12,6 +12,7 @@ const EnvioAgendamento = () => {
   } = useForm<FormValues>();
   const [isCopied, copyToClipboard] = useCopyToClipboard();
   const protocol = import.meta.env.VITE_HTTPS ? "https" : "http";
+  const baseUrl = import.meta.env.VITE_ENVIRONMENT_URL
 
   const date = watch("date");
   const time = watch("time");
@@ -24,7 +25,7 @@ const EnvioAgendamento = () => {
     appointment,
   });
 
-  const urlToSend = `${protocol}://localhost:5173/agendamento?${linkParams}`;
+  const urlToSend = `${protocol}://${baseUrl}/agendamento?${linkParams}`;
   const textToSend = `Olá! Passando pra lembrar da sua consulta virtual dia ${date} às ${time}.
   
   Veja mais informações sobre o teleatendimento ou crie um lembrete
