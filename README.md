@@ -34,6 +34,7 @@ Como a conexão com o banco fica pra Sprint 4, temos de servidor local o `json-s
 Para rodar o chatbot e o servidor de teste (json-server), é necessário criar um `.env` com as seguintes variáveis de ambiente:
 
 ```.env
+VITE_ENVIRONMENT_URL=localhost:5173
 VITE_SERVER_URL=http://localhost:3001
 VITE_JSON_ENDPOINT=http://localhost:3000/content
 WATSON_ASSISTANT_APIKEY=QGmn6ql_GeiwS2GIVATF39sZL9E45GZR5Bn-wOnYxPBM
