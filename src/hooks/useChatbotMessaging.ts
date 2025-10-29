@@ -1,9 +1,9 @@
-import type { Message } from "@/types/AiChat.types";
+import type { Message, useChatbotMessagingType } from "@/types/AiChat.types";
 import { useState, useEffect } from "react";
 
 const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
-export const useChatbotMessaging = () => {
+export const useChatbotMessaging = (): useChatbotMessagingType => {
   const [messages, setMessages] = useState<Message[]>([
     { text: "Olá! Como eu posso te ajudar?", sender: "assistant" },
   ]);
