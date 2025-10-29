@@ -4,7 +4,7 @@ import { FaqCard } from "./components/FaqCard/FaqCard";
 import { Button, FeatureCard } from "@/components";
 import CardDisabledPerson from "@/assets/CardDisabledPerson.png";
 import CardTelephoneExample from "@/assets/CardTelephoneExample.png";
-import Carf from "@/assets/Carf.png";
+import Carf from "@/assets/carf.png";
 import ExemploVideoChamada1 from "@/assets/ExemploVideoChamada1.png";
 import ExemploVideoChamada2 from "@/assets/ExemploVideoChamada2.png";
 import { useEffect, useState } from "react";
