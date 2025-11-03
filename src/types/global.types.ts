@@ -9,3 +9,5 @@ export type ContentDTO = {
   name: string;
   related: Array<RelatedContentDTO>;
 };
+
+  

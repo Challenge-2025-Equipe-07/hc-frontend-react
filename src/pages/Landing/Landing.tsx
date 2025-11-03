@@ -9,6 +9,7 @@ import ExemploVideoChamada1 from "@/assets/ExemploVideoChamada1.png";
 import ExemploVideoChamada2 from "@/assets/ExemploVideoChamada2.png";
 import { useEffect, useState } from "react";
 import type { ContentDTO } from "@/types/global.types";
+import articleService from "@/services/article.service";
 
 const Landing = () => {
   const [content, setContent] = useState<Array<ContentDTO>>([]);
@@ -16,10 +17,8 @@ const Landing = () => {
 
   useEffect(() => {
     const getContent = async () => {
-      const fetchContent = await fetch("http://localhost:3000/content");
-      const parseJson = await fetchContent.json();
-
-      setContent(parseJson);
+      const fetchContent = await articleService.getAllArticles();
+      setContent(fetchContent);
     };
 
     getContent();
