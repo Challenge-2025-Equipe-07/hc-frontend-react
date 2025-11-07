@@ -4,7 +4,7 @@ import { FaqCard } from "./components/FaqCard/FaqCard";
 import { Button, FeatureCard } from "@/components";
 import CardDisabledPerson from "@/assets/CardDisabledPerson.png";
 import CardTelephoneExample from "@/assets/CardTelephoneExample.png";
-import Carf from "@/assets/carf.png";
+import Carf from "@/assets/Carf.png";
 import ExemploVideoChamada1 from "@/assets/ExemploVideoChamada1.png";
 import ExemploVideoChamada2 from "@/assets/ExemploVideoChamada2.png";
 import { useEffect, useState } from "react";
@@ -13,10 +13,11 @@ import type { ContentDTO } from "@/types/global.types";
 const Landing = () => {
   const [content, setContent] = useState<Array<ContentDTO>>([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const ENDPOINT = import.meta.env.VITE_JSON_ENDPOINT;
 
   useEffect(() => {
     const getContent = async () => {
-      const fetchContent = await fetch("http://localhost:3000/content");
+      const fetchContent = await fetch(`${ENDPOINT}/content`);
       const parseJson = await fetchContent.json();
 
       setContent(parseJson);
