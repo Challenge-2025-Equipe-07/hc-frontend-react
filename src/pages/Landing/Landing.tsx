@@ -13,10 +13,11 @@ import type { ContentDTO } from "@/types/global.types";
 const Landing = () => {
   const [content, setContent] = useState<Array<ContentDTO>>([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const ENDPOINT = import.meta.env.VITE_JSON_ENDPOINT;
 
   useEffect(() => {
     const getContent = async () => {
-      const fetchContent = await fetch("http://localhost:3000/content");
+      const fetchContent = await fetch(`${ENDPOINT}/content`);
       const parseJson = await fetchContent.json();
 
       setContent(parseJson);
