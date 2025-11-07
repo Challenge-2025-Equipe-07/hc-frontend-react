@@ -2,18 +2,48 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { Heading, Button, Input } from "@/components";
 import type { FormData } from "./Login.types.ts";
+import { useLogin } from "@/hooks/useLogin.ts";
+import { useNotification } from "@/hooks/useNotification.ts";
 
 export const Login = () => {
   const {
     register,
     handleSubmit,
     formState: { isValid, errors },
+    setError,
   } = useForm<FormData>();
   const navigate = useNavigate();
+  const { showNotification } = useNotification();
+  const { setCurrentUser } = useLogin();
+  const ENDPOINT = import.meta.env.VITE_JSON_ENDPOINT;
 
-  const onSubmit: SubmitHandler<FormData> = (data) => {
-    console.log(data);
-    if (isValid) navigate("/agendar");
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
+    const fetchUser = await fetch(`${ENDPOINT}/user`);
+    const userList = await fetchUser.json();
+    const isUserValid = userList.some(
+      (user: { email: string; token: string }) =>
+        user.email === data.email && user.token === data.password,
+    );
+
+    const payload = { ...data, userId: 1 };
+
+    if (isUserValid && isValid) {
+      setCurrentUser(payload);
+      navigate("/usuario");
+      showNotification({
+        title: "Login realizado com sucesso!",
+        message: "Bem-vindo de volta!",
+      });
+    } else {
+      setError("password", {
+        type: "manual",
+        message: "E-mail ou senha inválidos.",
+      });
+      setError("email", {
+        type: "manual",
+        message: "E-mail ou senha inválidos.",
+      });
+    }
   };
 
   return (
@@ -29,7 +59,7 @@ export const Login = () => {
           {...register("email", {
             required: "O campo E-mail é obrigatório.",
             minLength: {
-              value: 10,
+              value: 8,
               message: "O e-mail deve ter no mínimo 10 caracteres.",
             },
           })}
