@@ -8,4 +8,6 @@ export type RelatedContentDTO = {
 export type ContentDTO = {
   name: string;
   related: Array<RelatedContentDTO>;
+  userId?: number;
+  id?: string;
 };
