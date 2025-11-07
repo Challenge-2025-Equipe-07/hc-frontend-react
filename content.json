@@ -1,7 +1,9 @@
 {
   "content": [
     {
+      "id": "1",
       "name": "Como tirar seu RG HC?",
+      "userId": 1,
       "related": [
         {
           "type": "video",
@@ -18,7 +20,9 @@
       ]
     },
     {
+      "id": "2",
       "name": "Manual da teleconsulta",
+      "userId": "",
       "related": [
         {
           "type": "video",
@@ -35,7 +39,9 @@
       ]
     },
     {
+      "id": "3",
       "name": "Como funciona a pré consulta",
+      "userId": "",
       "related": [
         {
           "type": "video",
@@ -46,7 +52,9 @@
       ]
     },
     {
+      "id": "4",
       "name": "Como funciona a pré consulta, parte 2",
+      "userId": "",
       "related": [
         {
           "type": "video",
@@ -63,21 +71,36 @@
       ]
     },
     {
-      "name": "Como funciona a pré consulta, parte 3",
+      "id": "6",
+      "name": "Artigo de teste",
+      "userId": 1,
       "related": [
         {
           "type": "video",
-          "url": "https://www.youtube.com/embed/rT9U8HlXaRw?si=yqMUThH0ZnA55wKV",
-          "description": "Como funciona a pré consulta",
-          "content": ""
-        },
-        {
-          "type": "text",
           "url": "",
-          "description": "Como funciona a pré consulta",
-          "content": "1 - Abra o aplicativo portal do paciente no seu celular\n2 - Na tela inicial clique em acessar portal\n3 - Uma mensagem perguntará se você deseja utilizar usp.br para iniciar sessão, clique em continuar\n4 - Na nova tela que se abrir, clique em cadastrar senha, insira o CPF do paciente e clique em localizar paciente\n5 - Preencha os dados pessoais solicitados e crie uma senha segura, com pelo menos 8 caracteres incluindo letras, números e caracteres especiais\n6 - Revise as informações e clique em 'Cadastrar senha'"
+          "description": "Artigo criado pra testar a criação de artigos",
+          "content": ""
         }
       ]
+    },
+    {
+      "id": "86a2",
+      "name": "Artigo teste",
+      "userId": 1,
+      "related": [
+        {
+          "type": "video",
+          "url": "",
+          "description": "Descrição do artigo",
+          "content": "1. Abra o app do hospital no celular. 2. Clique em 'Iniciar Teleconsulta'. 3. Siga as instruções na tela para conectar com o médico. 4. Se precisar de ajuda, peça a um familiar ou cuidador. 5. Tenha seus documentos e exames à mão. 6. Fique em um local tranquilo e com boa iluminação."
+        }
+      ]
+    }
+  ],
+  "user": [
+    {
+      "email": "milo@mail",
+      "token": "123456"
     }
   ]
 }

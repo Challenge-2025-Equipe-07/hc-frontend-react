@@ -36,7 +36,8 @@ Para rodar o chatbot e o servidor de teste (json-server), é necessário criar u
 ```.env
 VITE_ENVIRONMENT_URL=localhost:5173
 VITE_SERVER_URL=http://localhost:3001
-VITE_JSON_ENDPOINT=http://localhost:3000/content
+VITE_API_BASE_URL=https://2e73fa2acc20.ngrok-free.app/
+VITE_JSON_ENDPOINT=http://localhost:3000
 WATSON_ASSISTANT_APIKEY=QGmn6ql_GeiwS2GIVATF39sZL9E45GZR5Bn-wOnYxPBM
 WATSON_ASSISTANT_URL=https://api.au-syd.assistant.watson.cloud.ibm.com/instances/0f3c70d7-86ee-446e-b0ef-406d247cc4d3
 WATSON_ASSISTANT_ID=cf062b12-48b7-44c8-903d-031a15b42851
@@ -78,13 +79,12 @@ Após isso, abra seu navegador e acesse o endereço `https://localhost:5173` (ou
 
 > ⚠️ **Atenção:** Para testar as notificações e o chatbot, é necessário utilizar HTTPS. O certificado foi gerado localmente e pode não funcionar no seu computador. Se for o caso, essa entrega faz parte da Sprint 4 e será resolvida no deploy à Vercel.
 
-
 ## Nomes dos integrantes
 
-| Nome | RM |
-| --- | --- |
+| Nome              | RM     |
+| ----------------- | ------ |
 | Camilo Micheletto | 564113 |
-| Carlos Silva | 564968 |
+| Carlos Silva      | 564968 |
 | Guilherme Ribeiro | 562700 |
 
 ## Imagens e ícones relacionados ao projeto

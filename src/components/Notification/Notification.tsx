@@ -8,7 +8,7 @@ const Notification = ({ notification, onDismiss }: NotificationUIProps) => {
 
   return (
     <div
-      className="fixed right-5 bottom-5 z-50 w-full max-w-sm rounded-lg border border-blue-500 bg-white p-4 shadow-lg"
+      className="fixed right-5 bottom-5 z-9999 w-full max-w-sm rounded-lg border border-blue-500 bg-white p-4 shadow-lg"
       role="alert"
     >
       <div className="flex items-start">

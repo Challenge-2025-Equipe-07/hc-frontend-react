@@ -3,10 +3,12 @@ import { NavbarItem } from "./NavbarItem";
 import { useState } from "react";
 import { useResponsive } from "@/hooks/useResponsive";
 import { Button } from "@/components/Button/Button";
+import { useLogin } from "@/hooks/useLogin";
 
 const NavbarItems = () => {
   const [open, setOpen] = useState(false);
   const { isWeb } = useResponsive();
+  const { user, logout } = useLogin();
 
   const handleOpen = () => {
     setOpen((prev) => !prev);
@@ -41,14 +43,23 @@ const NavbarItems = () => {
           <NavbarItem to="/faq">FAQ</NavbarItem>
           <NavbarItem to="/integrantes">Integrantes</NavbarItem>
           <NavbarItem to="/contato">Contato</NavbarItem>
+          {user && (
+            <>
+              <NavbarItem to="/usuario">Área do usuário</NavbarItem>
+              <Button variant="tertiary" onClick={() => logout()}>
+                Logout
+              </Button>
+            </>
+          )}
         </ul>
       ) : null}
-      <Button asLink to={"/login"} variant="tertiary">
-        Entrar
-      </Button>
+      {!user && (
+        <Button asLink to={"/login"} variant="tertiary">
+          Entrar
+        </Button>
+      )}
     </nav>
   );
 };
 
 export { NavbarItems };
- 
