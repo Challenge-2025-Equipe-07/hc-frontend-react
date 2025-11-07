@@ -5,18 +5,23 @@ import { useEffect, useState } from "react";
 import type { ContentDTO, RelatedContentDTO } from "@/types/global.types";
 import { TextContent, VideoContent } from "./components/Content/Content";
 import { ArrowLeftIcon, ArrowRightIcon } from "@phosphor-icons/react";
+import { useLogin } from "@/hooks/useLogin";
+import { Button } from "@/components";
 
 const Duvida = () => {
   const { content } = useParams();
   const navigate = useNavigate();
+  const { user } = useLogin();
   const contentName = decodeURIComponent(content || "");
   const [selectedTab, setSelectedTab] = useState<RelatedContentDTO["type"]>();
   const [contentResponse, setContentResponse] = useState<Array<ContentDTO>>([]);
+
   const ENDPOINT = import.meta.env.VITE_JSON_ENDPOINT;
+
   useEffect(() => {
     const getContent = async () => {
       try {
-        const fetchContent = await fetch(ENDPOINT);
+        const fetchContent = await fetch(`${ENDPOINT}/content`);
         const parseJson: Array<ContentDTO> = await fetchContent.json();
 
         const selectedContent = parseJson.find(
@@ -60,7 +65,32 @@ const Duvida = () => {
     }
   };
 
+  const handleContentDelete = async () => {
+    const selectedContent = contentResponse[currentIndex];
+    if (!selectedContent) return;
+
+    await fetch(`${ENDPOINT}/content/id=${currentIndex}`, {
+      method: "DELETE",
+    });
+
+    navigate("/usuario");
+  };
+
+  const handleContentUpdate = () => {
+    const rel = selectedContent.related?.[0];
+
+    const params = new URLSearchParams();
+    params.append("name", selectedContent.name);
+    if (rel?.url) params.append("media", rel.url);
+    if (rel?.content) params.append("content", rel.content);
+    if (rel?.description) params.append("description", rel.description);
+    if (selectedContent.id) params.append("id", selectedContent.id);
+
+    navigate(`/artigo/criar?${params.toString()}`);
+  };
+
   const selectedContent = contentResponse[currentIndex];
+  const isUserContent = selectedContent?.userId === user?.userId;
 
   if (!selectedContent) {
     return <div>Carregando...</div>;
@@ -71,6 +101,24 @@ const Duvida = () => {
       <header className="page-header">
         <Breadcrumb currentUrl={contentName} />
         <h2 className="title text-gray-800">{contentName}</h2>
+        {isUserContent && (
+          <div className="flex gap-x-4">
+            <Button
+              className="mt-4"
+              variant="secondary"
+              onClick={handleContentUpdate}
+            >
+              Editar conteúdo
+            </Button>
+            <Button
+              className="mt-4"
+              variant="tertiary"
+              onClick={handleContentDelete}
+            >
+              Deletar conteúdo
+            </Button>
+          </div>
+        )}
       </header>
       <div>
         <TabControls
