@@ -25,11 +25,11 @@ const Duvida = () => {
       try {
         const fetchContent = await articleService.getArticle();
         const sortedContent = fetchContent.sort(
-          (a, b) => Number(a.articleId) - Number(b.articleId),
+          (a, b) => Number(a.id) - Number(b.id),
         );
 
         const currentContent = sortedContent.find(
-          (singleContent) => singleContent.articleId == content,
+          (singleContent) => singleContent.id == content,
         );
 
         if (!currentContent) {
@@ -52,9 +52,7 @@ const Duvida = () => {
   }, [content]);
 
   const currentIndex = selectedContent
-    ? contentResponse.findIndex(
-        (item) => item.articleId === selectedContent.articleId,
-      )
+    ? contentResponse.findIndex((item) => item.id === selectedContent.id)
     : -1;
 
   const prevArticle =
@@ -68,9 +66,9 @@ const Duvida = () => {
   const handleNavigate = (direction: "prev" | "next") => {
     let targetArticleId;
     if (direction === "prev" && prevArticle) {
-      targetArticleId = prevArticle.articleId;
+      targetArticleId = prevArticle.id;
     } else if (direction === "next" && nextArticle) {
-      targetArticleId = nextArticle.articleId;
+      targetArticleId = nextArticle.id;
     }
 
     if (targetArticleId) {
@@ -90,8 +88,7 @@ const Duvida = () => {
     if (rel?.url) params.append("media", rel.url);
     if (rel?.content) params.append("content", rel.content);
     if (rel?.description) params.append("description", rel.description);
-    if (selectedContent.articleId)
-      params.append("id", selectedContent.articleId);
+    if (selectedContent.id) params.append("id", selectedContent.id);
 
     navigate(`/artigo/criar?${params.toString()}`);
   };

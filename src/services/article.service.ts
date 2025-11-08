@@ -15,7 +15,7 @@ class ArticleService {
     const data = await response.json();
     return data;
   }
-  async getArticleById(id: ContentDTO["articleId"]): Promise<ContentDTO> {
+  async getArticleById(id: ContentDTO["id"]): Promise<ContentDTO> {
     const response = await fetch(`${BASE_URL}/article/${id}`, {
       method: "GET",
     });

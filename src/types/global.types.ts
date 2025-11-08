@@ -9,7 +9,7 @@ export type ContentDTO = {
   name: string;
   related: Array<RelatedContentDTO>;
   userId?: number;
-  articleId?: string;
+  id?: string;
 };
 
 export type ArticleType = {
