@@ -11,3 +11,14 @@ export type ContentDTO = {
   userId?: number;
   articleId?: string;
 };
+
+export type ArticleType = {
+  articleId: number;
+  name: string;
+};
+
+export type UserDTO = {
+  userId: number;
+  username: string;
+  articles: ArticleType[];
+};

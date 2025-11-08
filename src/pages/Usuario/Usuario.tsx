@@ -2,21 +2,22 @@ import { Button } from "@/components";
 import { useLogin } from "@/hooks/useLogin";
 import { useEffect, useState } from "react";
 import { FaqCard } from "../Landing/components/FaqCard/FaqCard";
-import type { ContentDTO } from "@/types/global.types";
+import type { ArticleType } from "@/types/global.types";
+import userService from "@/services/user.service";
 
 const Usuario = () => {
   const { user } = useLogin();
-  const [userArticles, setUserArticles] = useState<Array<ContentDTO>>([]);
-  const ENDPOINT = import.meta.env.VITE_ENDPOINT;
+  const [userArticles, setUserArticles] = useState<Array<ArticleType>>([]);
   useEffect(() => {
     try {
       const getContent = async () => {
-        const fetchContent = await fetch(
-          `${ENDPOINT}/content?userId=${user?.userId}`,
+        const fetchContent = await userService.getUserById(
+          user?.userId!.toString()!,
         );
-        const parseJson = await fetchContent.json();
 
-        setUserArticles(parseJson);
+        console.log(fetchContent);
+
+        setUserArticles(fetchContent.articles || []);
       };
 
       getContent();
