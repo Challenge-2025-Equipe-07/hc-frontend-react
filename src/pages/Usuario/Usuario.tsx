@@ -29,7 +29,7 @@ const Usuario = () => {
     <section className="grid gap-4 pb-6">
       <header>
         <h1 className="heading font-bold">Área do usuário</h1>
-        <p className="subtitle text-gray-600">{user?.email}</p>
+        <p className="subtitle text-gray-600">{user?.username}</p>
       </header>
       <h2 className="title mt-8">Ações</h2>
       <div className="flex gap-x-4">
