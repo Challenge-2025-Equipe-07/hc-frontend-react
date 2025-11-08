@@ -1,13 +1,20 @@
 import { Navigate, Outlet, ScrollRestoration, useLocation } from "react-router";
 import { AiButton, Footer, Navbar, NavbarItems } from "@/components";
 import { AiChat } from "@/pages/Ai/AiChat";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLogin } from "@/hooks/useLogin";
 
 const PagesLayout = ({ children }: { children?: React.ReactNode }) => {
   const [aiOpen, setAiOpen] = useState(false);
-  const { user } = useLogin();
+  const { user, setCurrentUser } = useLogin();
   const location = useLocation();
+
+  useEffect(() => {
+    setCurrentUser({
+      userId: 1,
+      username: "Guilherme Costa",
+    });
+  }, []);
 
   const privatePaths = ["/usuario", "/artigo/criar", "/agendar"];
 
@@ -21,7 +28,7 @@ const PagesLayout = ({ children }: { children?: React.ReactNode }) => {
   }
 
   return (
-    <main className="grid-layout grid min-h-svh auto-rows-[max-content_1fr_max-content] p-4">
+    <main className="grid-layout grid min-h-svh auto-rows-[max-content_1fr_max-content] p-4 max-md:px-0">
       <Navbar>
         <NavbarItems />
       </Navbar>

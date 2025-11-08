@@ -106,7 +106,7 @@ const Duvida = () => {
   const isUserContent = selectedContent.userId === user?.userId;
 
   return (
-    <section className="grid gap-y-4 pt-12 pb-8">
+    <section className="grid gap-y-4 px-4 pt-12 pb-8">
       <header className="page-header">
         <Breadcrumb currentUrl={selectedContent.name} />
         <h2 className="title text-gray-800">{selectedContent.name}</h2>

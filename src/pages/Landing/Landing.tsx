@@ -34,7 +34,7 @@ const Landing = () => {
   );
 
   return (
-    <section className="container mx-auto px-4">
+    <section className="container mx-auto px-4 max-sm:px-1">
       <header className="grid justify-items-center gap-y-2 py-16 text-center">
         <h1 className="hero-title max-w-xl text-gray-800">
           Como podemos te ajudar hoje?
@@ -60,7 +60,6 @@ const Landing = () => {
                 if (index % 2 == 0) return "yellow";
                 return "blue";
               };
-              console.log({ id: contentItem.id });
 
               return (
                 <FaqCard

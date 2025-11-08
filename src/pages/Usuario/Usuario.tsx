@@ -15,8 +15,6 @@ const Usuario = () => {
           user?.userId!.toString()!,
         );
 
-        console.log(fetchContent);
-
         setUserArticles(fetchContent.articles || []);
       };
 
@@ -27,7 +25,7 @@ const Usuario = () => {
   }, []);
 
   return (
-    <section className="grid gap-4 pb-6">
+    <section className="grid gap-4 px-4 pb-6">
       <header>
         <h1 className="heading font-bold">Área do usuário</h1>
         <p className="subtitle text-gray-600">{user?.username}</p>
@@ -42,7 +40,7 @@ const Usuario = () => {
         </Button>
       </div>
       <h2 className="title mt-8">Artigos criados</h2>
-      <div className="flex flex-wrap items-center gap-x-4">
+      <div className="flex items-center gap-6 gap-x-4 overflow-x-auto pb-4">
         {userArticles.length ? (
           userArticles.map((contentItem, index) => {
             const contentColor = () => {

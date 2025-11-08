@@ -3,7 +3,7 @@ import { HeartIcon, UsersIcon, CodeIcon } from "@phosphor-icons/react";
 
 const Sobre = () => {
   return (
-    <section className="my-8 grid gap-y-16">
+    <section className="my-8 grid gap-y-16 px-4">
       <Heading
         title="Sobre o Reabili"
         subtitle="Conectando pacientes a um cuidado acessível e humano."
@@ -56,4 +56,3 @@ const Sobre = () => {
 };
 
 export { Sobre };
- 
