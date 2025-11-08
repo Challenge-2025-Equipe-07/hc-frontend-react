@@ -51,12 +51,12 @@ export const Login = () => {
         <Heading title="Login" />
         <Input
           id="username"
-          label="Email"
+          label="Username"
           {...register("username", {
-            required: "O campo E-mail é obrigatório.",
+            required: "O username é obrigatório.",
             minLength: {
-              value: 8,
-              message: "O e-mail deve ter no mínimo 10 caracteres.",
+              value: 2,
+              message: "O nome do usuário deve ter no mínimo 10 caracteres.",
             },
           })}
           type="text"
