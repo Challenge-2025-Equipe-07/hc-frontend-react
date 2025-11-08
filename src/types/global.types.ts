@@ -1,5 +1,5 @@
 export type RelatedContentDTO = {
-  type: "video" | "text";
+  type: "VIDEO" | "TEXT";
   url?: string;
   description: string;
   content?: string;
@@ -9,5 +9,5 @@ export type ContentDTO = {
   name: string;
   related: Array<RelatedContentDTO>;
   userId?: number;
-  id?: string;
+  articleId?: string;
 };
