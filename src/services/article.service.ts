@@ -1,6 +1,6 @@
 import type { ContentDTO } from "@/types/global.types";
 
-const BASE_URL = import.meta.env.VITE_ENDPOINT;
+const BASE_URL = import.meta.env.VITE_SERVER_URL;
 
 class ArticleService {
   async getArticle(): Promise<Array<ContentDTO>> {
