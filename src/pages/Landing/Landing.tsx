@@ -60,14 +60,14 @@ const Landing = () => {
                 if (index % 2 == 0) return "yellow";
                 return "blue";
               };
-              console.log({ id: contentItem.articleId });
+              console.log({ id: contentItem.id });
 
               return (
                 <FaqCard
                   theme={contentColor()}
                   title={contentItem.name}
-                  link={`/duvida/${contentItem.articleId}`}
-                  key={`${index}-${contentItem.articleId}`}
+                  link={`/duvida/${contentItem.id}`}
+                  key={`${index}-${contentItem.id}`}
                 />
               );
             })}

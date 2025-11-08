@@ -54,7 +54,7 @@ const Usuario = () => {
               <FaqCard
                 theme={contentColor()}
                 title={contentItem.name}
-                link={`/duvida/${contentItem.articleId}`}
+                link={`/duvida/${contentItem.id}`}
                 key={`${index}-${contentItem.name}`}
               />
             );
