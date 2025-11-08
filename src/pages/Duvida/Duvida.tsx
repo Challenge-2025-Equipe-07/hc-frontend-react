@@ -8,6 +8,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from "@phosphor-icons/react";
 import { useLogin } from "@/hooks/useLogin";
 import { Button } from "@/components";
 import articleService from "@/services/article.service";
+import { SpinnerIcon } from "@phosphor-icons/react";
 
 const Duvida = () => {
   const { content } = useParams();
@@ -94,7 +95,12 @@ const Duvida = () => {
   };
 
   if (!selectedContent) {
-    return <div>Carregando...</div>;
+    return (
+      <div className="grid h-80 auto-rows-max place-items-center content-center gap-y-4">
+        <h1 className="text-2xl text-gray-800">Carregando sua resposta</h1>
+        <SpinnerIcon size={60} className="animate-spin text-blue-600" />
+      </div>
+    );
   }
 
   const isUserContent = selectedContent.userId === user?.userId;

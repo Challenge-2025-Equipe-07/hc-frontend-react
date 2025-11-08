@@ -138,7 +138,6 @@ https://github.com/Challenge-2025-Equipe-07/hc-frontend-react
 
 ## Link publicado (Vercel)
 
-⚠️ (Sem backend conectado)
 https://hc-frontend-react.vercel.app/
 
 ## Link do vídeo do YouTube
