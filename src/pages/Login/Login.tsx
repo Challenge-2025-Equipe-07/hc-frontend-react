@@ -4,6 +4,7 @@ import { Heading, Button, Input } from "@/components";
 import type { FormData } from "./Login.types.ts";
 import { useLogin } from "@/hooks/useLogin.ts";
 import { useNotification } from "@/hooks/useNotification.ts";
+import loginService from "@/services/login.service.ts";
 
 export const Login = () => {
   const {
@@ -15,33 +16,28 @@ export const Login = () => {
   const navigate = useNavigate();
   const { showNotification } = useNotification();
   const { setCurrentUser } = useLogin();
-  const ENDPOINT = import.meta.env.VITE_JSON_ENDPOINT;
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
-    const fetchUser = await fetch(`${ENDPOINT}/user`);
-    const userList = await fetchUser.json();
-    const isUserValid = userList.some(
-      (user: { email: string; token: string }) =>
-        user.email === data.email && user.token === data.password,
-    );
+    try {
+      if (!isValid) throw new Error("E-mail ou senha inválidos.");
+      const fetchUser = await loginService.login(data.username, data.password);
 
-    const payload = { ...data, userId: 1 };
+      setCurrentUser(fetchUser);
 
-    if (isUserValid && isValid) {
-      setCurrentUser(payload);
       navigate("/usuario");
+
       showNotification({
         title: "Login realizado com sucesso!",
         message: "Bem-vindo de volta!",
       });
-    } else {
+    } catch (error) {
       setError("password", {
         type: "manual",
-        message: "E-mail ou senha inválidos.",
+        message: error as unknown as string,
       });
-      setError("email", {
+      setError("username", {
         type: "manual",
-        message: "E-mail ou senha inválidos.",
+        message: error as unknown as string,
       });
     }
   };
@@ -54,20 +50,20 @@ export const Login = () => {
       >
         <Heading title="Login" />
         <Input
-          id="email"
+          id="username"
           label="Email"
-          {...register("email", {
+          {...register("username", {
             required: "O campo E-mail é obrigatório.",
             minLength: {
               value: 8,
               message: "O e-mail deve ter no mínimo 10 caracteres.",
             },
           })}
-          type="email"
+          type="text"
           color="light"
-          placeholder="seuemail@exemplo.com"
-          error={errors.email?.message}
-          autoComplete="email"
+          placeholder="Nome do seu usuario (sem espaços)"
+          error={errors.username?.message}
+          autoComplete="username"
         />
         <Input
           id="password"
@@ -75,7 +71,7 @@ export const Login = () => {
           {...register("password", {
             required: "O campo senha é obrigatório.",
             minLength: {
-              value: 6,
+              value: 5,
               message: "A senha deve ter no mínimo 6 caracteres.",
             },
           })}

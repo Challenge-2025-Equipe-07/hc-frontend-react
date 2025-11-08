@@ -7,6 +7,8 @@ const FaqCard = (props: FaqCardProps) => {
   const { title, link, theme } = props;
   const selectedVariant = FAQ_CARD_VARIANTS({ color: theme });
 
+  console.log({ link });
+
   return (
     <div className={selectedVariant}>
       <h2 className="title font-medium">{title}</h2>

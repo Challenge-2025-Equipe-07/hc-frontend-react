@@ -9,18 +9,17 @@ import ExemploVideoChamada1 from "@/assets/ExemploVideoChamada1.png";
 import ExemploVideoChamada2 from "@/assets/ExemploVideoChamada2.png";
 import { useEffect, useState } from "react";
 import type { ContentDTO } from "@/types/global.types";
+import articleService from "@/services/article.service";
 
 const Landing = () => {
   const [content, setContent] = useState<Array<ContentDTO>>([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const ENDPOINT = import.meta.env.VITE_JSON_ENDPOINT;
 
   useEffect(() => {
     const getContent = async () => {
-      const fetchContent = await fetch(`${ENDPOINT}/content`);
-      const parseJson = await fetchContent.json();
+      const fetchContent = await articleService.getArticle();
 
-      setContent(parseJson);
+      setContent(fetchContent);
     };
 
     getContent();
@@ -61,15 +60,14 @@ const Landing = () => {
                 if (index % 2 == 0) return "yellow";
                 return "blue";
               };
-
-              const contentUriByName = encodeURIComponent(contentItem.name);
+              console.log({ id: contentItem.articleId });
 
               return (
                 <FaqCard
                   theme={contentColor()}
                   title={contentItem.name}
-                  link={`/duvida/${contentUriByName}`}
-                  key={`${index}-${contentItem.name}`}
+                  link={`/duvida/${contentItem.articleId}`}
+                  key={`${index}-${contentItem.articleId}`}
                 />
               );
             })}

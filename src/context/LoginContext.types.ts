@@ -1,7 +1,7 @@
 export type UserType = {
-  email: string;
-  password: string;
-  userId?: number;
+  username: string;
+  password?: string;
+  userId: number;
 };
 
 export type LoginContextType = {

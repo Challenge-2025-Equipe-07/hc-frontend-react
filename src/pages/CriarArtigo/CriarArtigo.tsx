@@ -48,7 +48,7 @@ const CriarArtigo = () => {
 
     try {
       const postArticle = async () => {
-        await fetch(`${import.meta.env.VITE_JSON_ENDPOINT}/${path}`, {
+        await fetch(`${import.meta.env.VITE_ENDPOINT}/${path}`, {
           method,
           headers: {
             "Content-Type": "application/json",

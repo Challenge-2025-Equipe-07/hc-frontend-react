@@ -7,7 +7,7 @@ import type { ContentDTO } from "@/types/global.types";
 const Usuario = () => {
   const { user } = useLogin();
   const [userArticles, setUserArticles] = useState<Array<ContentDTO>>([]);
-  const ENDPOINT = import.meta.env.VITE_JSON_ENDPOINT;
+  const ENDPOINT = import.meta.env.VITE_ENDPOINT;
   useEffect(() => {
     try {
       const getContent = async () => {
@@ -17,7 +17,6 @@ const Usuario = () => {
         const parseJson = await fetchContent.json();
 
         setUserArticles(parseJson);
-        console.log("here", parseJson);
       };
 
       getContent();
@@ -50,12 +49,11 @@ const Usuario = () => {
               if (index % 2 == 0) return "yellow";
               return "blue";
             };
-            const contentUriByName = encodeURIComponent(contentItem.name);
             return (
               <FaqCard
                 theme={contentColor()}
                 title={contentItem.name}
-                link={`/duvida/${contentUriByName}`}
+                link={`/duvida/${contentItem.articleId}`}
                 key={`${index}-${contentItem.name}`}
               />
             );

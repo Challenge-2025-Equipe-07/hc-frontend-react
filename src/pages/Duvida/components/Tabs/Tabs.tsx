@@ -6,12 +6,13 @@ import { memo, useCallback } from "react";
 const TabControls = memo((props: TabsListProps) => {
   const { selectedTab, setTab, relatedContent } = props;
 
-  const hasVideo = relatedContent?.some((content) => content.type === "video");
-  const hasText = relatedContent?.some((content) => content.type === "text");
+  const hasVideo = relatedContent?.some((content) => content.type === "VIDEO");
+  const hasText = relatedContent?.some((content) => content.type === "TEXT");
 
   const handleClick = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
-      const tabName = event.currentTarget.id as RelatedContentDTO["type"];
+      const tabName =
+        event.currentTarget.id.toUpperCase() as RelatedContentDTO["type"];
       setTab(tabName);
     },
     [setTab],
@@ -27,7 +28,7 @@ const TabControls = memo((props: TabsListProps) => {
         id="video"
         type="button"
         role="tab"
-        aria-selected={selectedTab === "video"}
+        aria-selected={selectedTab === "VIDEO"}
         onClick={handleClick}
         aria-controls="tabpanel-1"
         disabled={!hasVideo}
@@ -40,7 +41,7 @@ const TabControls = memo((props: TabsListProps) => {
         id="text"
         type="button"
         role="tab"
-        aria-selected={selectedTab === "text"}
+        aria-selected={selectedTab === "TEXT"}
         aria-controls="tabpanel-2"
         tabIndex={-1}
         onClick={handleClick}

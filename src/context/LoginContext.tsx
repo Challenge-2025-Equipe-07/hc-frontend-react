@@ -22,6 +22,8 @@ export const LoginProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const setCurrentUser = (userData: UserType) => {
+    console.log({ userData });
+
     setUser(userData);
     window.localStorage.setItem("user", JSON.stringify(userData));
   };
