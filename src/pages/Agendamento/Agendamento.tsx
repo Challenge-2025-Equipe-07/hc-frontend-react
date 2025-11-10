@@ -91,7 +91,7 @@ const Agendamento = () => {
           description="Como funcionam nossos serviços de psicologia e assistência social"
           actionLabel="Saber mais"
           theme="warm"
-          link={encodeURIComponent("Como funciona a pré consulta")}
+          link={"1"}
         />
         <FeatureCard
           img={CardTelephoneExample}
@@ -99,7 +99,7 @@ const Agendamento = () => {
           description="Cuidar da sua saúde no conforto da sua casa é mais simples do que você imagina"
           actionLabel="Saber mais"
           theme="cold"
-          link={encodeURIComponent("Manual da teleconsulta")}
+          link={"2"}
         />
       </div>
     </section>
