@@ -21,11 +21,16 @@ const VideoContent = (props: VideoContentProps) => {
 const TextContent = (props: TextContentProps) => {
   const { content, name } = props;
   return (
-    <div className="rouded-lg grid h-120 w-full auto-rows-max gap-y-4 bg-gray-50 px-4 py-6">
+    <div className="rouded-lg grid h-120 w-full auto-rows-max gap-y-2 bg-gray-50 px-4 py-6">
       <h2 className="subtitle font-bold text-gray-900">{name}</h2>
-      <p className="leading-relaxed text-pretty whitespace-pre-line text-gray-800">
-        {content}
-      </p>
+      {content?.split("\\n").map((paragraph, index) => (
+        <p
+          key={index}
+          className="leading-relaxed text-pretty whitespace-pre-line text-gray-800"
+        >
+          {paragraph}
+        </p>
+      ))}
     </div>
   );
 };

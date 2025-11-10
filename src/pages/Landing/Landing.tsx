@@ -9,18 +9,17 @@ import ExemploVideoChamada1 from "@/assets/ExemploVideoChamada1.png";
 import ExemploVideoChamada2 from "@/assets/ExemploVideoChamada2.png";
 import { useEffect, useState } from "react";
 import type { ContentDTO } from "@/types/global.types";
+import articleService from "@/services/article.service";
 
 const Landing = () => {
   const [content, setContent] = useState<Array<ContentDTO>>([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const ENDPOINT = import.meta.env.VITE_JSON_ENDPOINT;
 
   useEffect(() => {
     const getContent = async () => {
-      const fetchContent = await fetch(`${ENDPOINT}/content`);
-      const parseJson = await fetchContent.json();
+      const fetchContent = await articleService.getArticle();
 
-      setContent(parseJson);
+      setContent(fetchContent);
     };
 
     getContent();
@@ -35,7 +34,7 @@ const Landing = () => {
   );
 
   return (
-    <section className="container mx-auto px-4">
+    <section className="container mx-auto px-4 max-sm:px-1">
       <header className="grid justify-items-center gap-y-2 py-16 text-center">
         <h1 className="hero-title max-w-xl text-gray-800">
           Como podemos te ajudar hoje?
@@ -62,14 +61,12 @@ const Landing = () => {
                 return "blue";
               };
 
-              const contentUriByName = encodeURIComponent(contentItem.name);
-
               return (
                 <FaqCard
                   theme={contentColor()}
                   title={contentItem.name}
-                  link={`/duvida/${contentUriByName}`}
-                  key={`${index}-${contentItem.name}`}
+                  link={`/duvida/${contentItem.id}`}
+                  key={`${index}-${contentItem.id}`}
                 />
               );
             })}
@@ -83,7 +80,7 @@ const Landing = () => {
           description="Como funcionam nossos serviços de psicologia e assistência social"
           actionLabel="Saber mais"
           theme="warm"
-          link={encodeURIComponent("Como funciona a pré consulta")}
+          link={"1"}
         />
         <FeatureCard
           img={CardTelephoneExample}
@@ -91,7 +88,7 @@ const Landing = () => {
           description="Cuidar da sua saúde no conforto da sua casa é mais simples do que você imagina"
           actionLabel="Saber mais"
           theme="cold"
-          link={encodeURIComponent("Manual da teleconsulta")}
+          link={"2"}
         />
       </div>
 

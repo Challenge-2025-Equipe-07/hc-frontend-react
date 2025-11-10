@@ -46,7 +46,7 @@ const SearchComponent = ({ onSearch }: SearchComponentProps) => {
   return (
     <>
       <form
-        className="flex w-full max-w-124 items-center gap-2 rounded-4xl border-1 border-gray-200 bg-white px-4 py-2 shadow-2xl transition-shadow focus-within:ring-1 focus-within:ring-blue-500"
+        className="flex w-full max-w-120 items-center gap-2 rounded-4xl border-1 border-gray-200 bg-white px-4 py-2 shadow-2xl transition-shadow focus-within:ring-1 focus-within:ring-blue-500"
         onSubmit={handleSubmit(onSubmit)}
       >
         <input
