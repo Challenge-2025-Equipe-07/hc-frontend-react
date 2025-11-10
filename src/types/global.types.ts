@@ -21,4 +21,5 @@ export type UserDTO = {
   userId: number;
   username: string;
   articles: ArticleType[];
+  usernameId: string;
 };

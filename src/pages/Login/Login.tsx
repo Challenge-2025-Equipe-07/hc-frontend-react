@@ -10,7 +10,7 @@ export const Login = () => {
   const {
     register,
     handleSubmit,
-    formState: { isValid, errors },
+    formState: { errors },
     setError,
   } = useForm<FormData>();
   const navigate = useNavigate();
@@ -19,25 +19,33 @@ export const Login = () => {
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     try {
-      if (!isValid) throw new Error("E-mail ou senha inválidos.");
       const fetchUser = await loginService.login(data.username, data.password);
 
+      if (!fetchUser) {
+        throw new Error("E-mail ou senha inválidos.");
+      }
+
       setCurrentUser(fetchUser);
-
       navigate("/usuario");
-
       showNotification({
         title: "Login realizado com sucesso!",
         message: "Bem-vindo de volta!",
       });
     } catch (error) {
+      let errorMessage = "Ocorreu um erro inesperado.";
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      } else if (typeof error === "string") {
+        errorMessage = error;
+      }
+
       setError("password", {
         type: "manual",
-        message: error as unknown as string,
+        message: errorMessage,
       });
       setError("username", {
         type: "manual",
-        message: error as unknown as string,
+        message: errorMessage,
       });
     }
   };

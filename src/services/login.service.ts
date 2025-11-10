@@ -13,7 +13,7 @@ class LoginService {
     });
 
     if (!response.ok) {
-      throw new Error("Login failed");
+      throw new Error("Credenciais incorretas");
     }
 
     const data = await response.json();

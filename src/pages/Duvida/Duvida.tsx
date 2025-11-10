@@ -64,6 +64,17 @@ const Duvida = () => {
       ? contentResponse[currentIndex + 1]
       : null;
 
+  const handleDeleteArticle = async () => {
+    if (!selectedContent) return;
+
+    try {
+      await articleService.deleteArticleById(selectedContent.id);
+      navigate(-1);
+    } catch (error) {
+      console.error("Failed to delete content:", error);
+    }
+  };
+
   const handleNavigate = (direction: "prev" | "next") => {
     let targetArticleId;
     if (direction === "prev" && prevArticle) {
@@ -77,21 +88,6 @@ const Duvida = () => {
         preventScrollReset: true,
       });
     }
-  };
-
-  const handleContentUpdate = () => {
-    if (!selectedContent) return;
-
-    const rel = selectedContent.related?.[0];
-
-    const params = new URLSearchParams();
-    params.append("name", selectedContent.name);
-    if (rel?.url) params.append("media", rel.url);
-    if (rel?.content) params.append("content", rel.content);
-    if (rel?.description) params.append("description", rel.description);
-    if (selectedContent.id) params.append("id", selectedContent.id);
-
-    navigate(`/artigo/criar?${params.toString()}`);
   };
 
   if (!selectedContent) {
@@ -111,22 +107,13 @@ const Duvida = () => {
         <Breadcrumb currentUrl={selectedContent.name} />
         <h2 className="title text-gray-800">{selectedContent.name}</h2>
         {isUserContent && (
-          <div className="flex gap-x-4">
-            <Button
-              className="mt-4"
-              variant="secondary"
-              onClick={handleContentUpdate}
-            >
-              Editar conteúdo
-            </Button>
-            <Button
-              className="mt-4"
-              variant="tertiary"
-              onClick={() => console.log} // Note: This doesn't do anything, maybe add delete logic?
-            >
-              Deletar conteúdo
-            </Button>
-          </div>
+          <Button
+            className="mt-4"
+            variant="tertiary"
+            onClick={handleDeleteArticle}
+          >
+            Deletar conteúdo
+          </Button>
         )}
       </header>
       <div>

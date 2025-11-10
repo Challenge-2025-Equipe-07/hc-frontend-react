@@ -11,8 +11,23 @@ class UserService {
 
     const data = await response.json();
 
-    console.log(data);
-
+    return data;
+  }
+  async editUserById(
+    id: string,
+    username: UserDTO["username"],
+  ): Promise<UserDTO> {
+    const response = await fetch(`${BASE_URL}/user/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username }),
+    });
+    if (!response.ok) {
+      throw new Error(`Error while editing user ${id}`);
+    }
+    const data = await response.json();
     return data;
   }
 }
