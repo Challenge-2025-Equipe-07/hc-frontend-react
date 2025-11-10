@@ -28,7 +28,9 @@ const Usuario = () => {
     } catch (error) {
       console.error(error);
     } finally {
-      window.location.reload();
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
     }
   };
 
@@ -47,7 +49,7 @@ const Usuario = () => {
     } catch (error) {
       console.error(error);
     }
-  }, []);
+  }, [user]);
 
   return (
     <section className="grid gap-4 px-4 pb-6">
@@ -62,14 +64,9 @@ const Usuario = () => {
         </p>
       </header>
       <h2 className="title mt-8">Ações</h2>
-      <div className="flex gap-x-4">
-        <Button to={"/artigo/criar"} asLink>
-          Criar artigos
-        </Button>
-        <Button asLink to={"/agendar"} variant="secondary">
-          Criar notificação
-        </Button>
-      </div>
+      <Button asLink to={"/agendar"} variant="secondary">
+        Criar notificação
+      </Button>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex w-full max-w-md items-center space-y-8 gap-x-4 rounded-md py-2"

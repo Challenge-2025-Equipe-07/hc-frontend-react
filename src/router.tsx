@@ -10,7 +10,6 @@ import { ErrorPage } from "@/pages/Error/ErrorPage";
 import { EnvioAgendamento } from "@/pages/EnvioAgendamento/EnvioAgendamento";
 import { Sobre } from "@/pages/Sobre/Sobre";
 import { Login } from "@/pages/Login/Login";
-import { CriarArtigo } from "./pages/CriarArtigo/CriarArtigo";
 import { Usuario } from "./pages/Usuario/Usuario";
 
 const router = createBrowserRouter([
@@ -29,10 +28,6 @@ const router = createBrowserRouter([
       {
         path: "/duvida",
         loader: () => redirect("/"),
-      },
-      {
-        path: "/artigo/criar",
-        Component: CriarArtigo,
       },
       { path: "/duvida/:content", Component: Duvida },
       { path: "/contato", Component: Contato },

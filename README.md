@@ -36,6 +36,8 @@ Para rodar o chatbot e o servidor de teste (json-server), é necessário criar u
 ```.env
 VITE_SERVER_URL=https://reabili-api.onrender.com
 VITE_ENDPOINT=http://34.201.99.197:8080
+VITE_HTTPS=false
+VITE_ENVIRONMENT_URL=http://localhost:5173
 ```
 
 ### Instalação
@@ -46,14 +48,7 @@ VITE_ENDPOINT=http://34.201.99.197:8080
    npm install
    ```
 
-2. **Inicie os serviços de backend (API e chat):**
-   Em um terminal, execute o seguinte comando para iniciar o servidor de conteúdo e o servidor do chat simultaneamente.
-
-   ```bash
-   npm run api
-   ```
-
-3. **Inicie o servidor de desenvolvimento do frontend:**
+2. **Inicie o servidor de desenvolvimento do frontend:**
    Em **outro** terminal, execute o seguinte comando:
 
    ```bash
@@ -140,6 +135,6 @@ https://github.com/Challenge-2025-Equipe-07/hc-frontend-react
 
 https://hc-frontend-react.vercel.app/
 
-## Link do vídeo do YouTube
+## Link do vídeo do YouTube (Sprint 4)
 
 https://youtu.be/ZVOTUHtpnXM
