@@ -21,7 +21,7 @@ const PagesLayout = ({ children }: { children?: React.ReactNode }) => {
   }
 
   return (
-    <main className="grid-layout grid min-h-svh auto-rows-[max-content_1fr_max-content] p-4">
+    <main className="grid-layout grid min-h-svh auto-rows-[max-content_1fr_max-content] p-4 max-md:px-0">
       <Navbar>
         <NavbarItems />
       </Navbar>

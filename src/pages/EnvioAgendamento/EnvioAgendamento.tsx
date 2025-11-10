@@ -12,7 +12,7 @@ const EnvioAgendamento = () => {
   } = useForm<FormValues>();
   const [isCopied, copyToClipboard] = useCopyToClipboard();
   const protocol = import.meta.env.VITE_HTTPS ? "https" : "http";
-  const baseUrl = import.meta.env.VITE_ENVIRONMENT_URL
+  const baseUrl = import.meta.env.VITE_ENVIRONMENT_URL;
 
   const date = watch("date");
   const time = watch("time");
@@ -48,7 +48,7 @@ const EnvioAgendamento = () => {
   };
 
   return (
-    <section className="grid gap-4 pb-6">
+    <section className="grid gap-4 px-4 pb-6">
       <header>
         <h1 className="heading font-bold">Lembretes de consulta</h1>
         <p className="subtitle text-gray-600">

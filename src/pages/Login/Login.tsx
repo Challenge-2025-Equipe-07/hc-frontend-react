@@ -4,44 +4,48 @@ import { Heading, Button, Input } from "@/components";
 import type { FormData } from "./Login.types.ts";
 import { useLogin } from "@/hooks/useLogin.ts";
 import { useNotification } from "@/hooks/useNotification.ts";
+import loginService from "@/services/login.service.ts";
 
 export const Login = () => {
   const {
     register,
     handleSubmit,
-    formState: { isValid, errors },
+    formState: { errors },
     setError,
   } = useForm<FormData>();
   const navigate = useNavigate();
   const { showNotification } = useNotification();
   const { setCurrentUser } = useLogin();
-  const ENDPOINT = import.meta.env.VITE_JSON_ENDPOINT;
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
-    const fetchUser = await fetch(`${ENDPOINT}/user`);
-    const userList = await fetchUser.json();
-    const isUserValid = userList.some(
-      (user: { email: string; token: string }) =>
-        user.email === data.email && user.token === data.password,
-    );
+    try {
+      const fetchUser = await loginService.login(data.username, data.password);
 
-    const payload = { ...data, userId: 1 };
+      if (!fetchUser) {
+        throw new Error("E-mail ou senha inválidos.");
+      }
 
-    if (isUserValid && isValid) {
-      setCurrentUser(payload);
+      setCurrentUser(fetchUser);
       navigate("/usuario");
       showNotification({
         title: "Login realizado com sucesso!",
         message: "Bem-vindo de volta!",
       });
-    } else {
+    } catch (error) {
+      let errorMessage = "Ocorreu um erro inesperado.";
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      } else if (typeof error === "string") {
+        errorMessage = error;
+      }
+
       setError("password", {
         type: "manual",
-        message: "E-mail ou senha inválidos.",
+        message: errorMessage,
       });
-      setError("email", {
+      setError("username", {
         type: "manual",
-        message: "E-mail ou senha inválidos.",
+        message: errorMessage,
       });
     }
   };
@@ -54,20 +58,20 @@ export const Login = () => {
       >
         <Heading title="Login" />
         <Input
-          id="email"
-          label="Email"
-          {...register("email", {
-            required: "O campo E-mail é obrigatório.",
+          id="username"
+          label="Username"
+          {...register("username", {
+            required: "O username é obrigatório.",
             minLength: {
-              value: 8,
-              message: "O e-mail deve ter no mínimo 10 caracteres.",
+              value: 2,
+              message: "O nome do usuário deve ter no mínimo 10 caracteres.",
             },
           })}
-          type="email"
+          type="text"
           color="light"
-          placeholder="seuemail@exemplo.com"
-          error={errors.email?.message}
-          autoComplete="email"
+          placeholder="Nome do seu usuario (sem espaços)"
+          error={errors.username?.message}
+          autoComplete="username"
         />
         <Input
           id="password"
@@ -75,7 +79,7 @@ export const Login = () => {
           {...register("password", {
             required: "O campo senha é obrigatório.",
             minLength: {
-              value: 6,
+              value: 5,
               message: "A senha deve ter no mínimo 6 caracteres.",
             },
           })}

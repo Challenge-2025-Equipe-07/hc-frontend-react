@@ -48,7 +48,7 @@ const CriarArtigo = () => {
 
     try {
       const postArticle = async () => {
-        await fetch(`${import.meta.env.VITE_JSON_ENDPOINT}/${path}`, {
+        await fetch(`${import.meta.env.VITE_ENDPOINT}/${path}`, {
           method,
           headers: {
             "Content-Type": "application/json",
@@ -81,7 +81,7 @@ const CriarArtigo = () => {
   const charCount = watch("content")?.length;
 
   return (
-    <section className="grid gap-4 pb-6">
+    <section className="grid gap-4 px-4 pb-6">
       <header>
         <h1 className="heading font-bold">Criação de artigos</h1>
         <p className="subtitle text-gray-600">
